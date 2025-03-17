@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="transaction"
+            type="org.eagsoftware.basiccashflow.data.TransactionEntity" />
+        <variable
+            name="viewModel"
+            type="org.eagsoftware.basiccashflow.MyViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/colorPrimary"
+        android:elevation="2dp"
+        android:layout_marginVertical="1dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/min_touch"
+            android:paddingHorizontal="@dimen/margin_standard"
+            android:paddingVertical="@dimen/margin_quite_small">
+
+            <TextView
+                android:id="@+id/txw_rcy_trans_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{transaction.isIncome ? `+` : `-`}"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="+" />
+
+            <TextView
+                android:id="@+id/txw_rcy_trans_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_minimum"
+                android:textStyle="bold"
+                android:text="@{String.valueOf(transaction.amount)}"
+                app:layout_constraintStart_toEndOf="@id/txw_rcy_trans_sign"
+                app:layout_constraintTop_toTopOf="@id/txw_rcy_trans_sign"
+                app:layout_constraintBottom_toBottomOf="@id/txw_rcy_trans_sign"
+                tools:text="50"/>
+
+            <TextView
+                android:id="@+id/txw_rcy_trans_curr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.currency.symbol}"
+                android:layout_marginStart="@dimen/margin_small"
+                app:layout_constraintStart_toEndOf="@id/txw_rcy_trans_amount"
+                app:layout_constraintTop_toTopOf="@id/txw_rcy_trans_amount"
+                app:layout_constraintBottom_toBottomOf="@id/txw_rcy_trans_amount"
+                tools:text="€"/>
+
+
+            <TextView
+                android:id="@+id/txw_rcy_trans_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_quite_small"
+                android:gravity="end"
+                android:text="@{transaction.desc}"
+                app:layout_constraintBottom_toBottomOf="@+id/txw_rcy_trans_curr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txw_rcy_trans_curr"
+                app:layout_constraintTop_toTopOf="@+id/txw_rcy_trans_curr"
+                tools:text="descrizione" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

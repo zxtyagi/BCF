@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true" >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="org.eagsoftware.basiccashflow.MyViewModel" />
+        <variable
+            name="clickHandler"
+            type="org.eagsoftware.basiccashflow.clickhandlers.MainActivityClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.MainActivity">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorPrimaryDark"
+            android:elevation="@dimen/header_elevation"
+            app:layout_constraintBottom_toTopOf="@id/rcw_trans"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txw_balance_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_standard"
+            android:elevation="@dimen/header_elevation"
+            android:text="@string/saldo"
+            app:layout_constraintBottom_toTopOf="@+id/rcw_trans"
+            app:layout_constraintEnd_toStartOf="@+id/txw_balance"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txw_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.balance)}"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:elevation="@dimen/header_elevation"
+            app:layout_constraintBottom_toBottomOf="@+id/txw_balance_label"
+            app:layout_constraintEnd_toStartOf="@+id/txw_balance_curr"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txw_balance_label"
+            app:layout_constraintTop_toTopOf="@+id/txw_balance_label"
+            tools:text="8888.8"/>
+
+        <TextView
+            android:id="@+id/txw_balance_curr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.currency.symbol}"
+            android:textSize="32sp"
+            android:layout_marginStart="@dimen/margin_standard"
+            android:elevation="@dimen/header_elevation"
+            app:layout_constraintBottom_toBottomOf="@+id/txw_balance"
+            app:layout_constraintTop_toTopOf="@+id/txw_balance"
+            app:layout_constraintStart_toEndOf="@+id/txw_balance"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteX="323dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcw_trans"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingTop="1dp"
+            android:scrollbars="vertical"
+            android:scrollbarDefaultDelayBeforeFade="@integer/scrollbar_dur"
+            app:layout_constraintWidth_max="@dimen/max_list_width"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.85"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            tools:listitem="@layout/item_rcy_trans" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginBottom="@dimen/margin_standard"
+            android:onClick="@{clickHandler::onFABsettingsClicked}"
+            android:contentDescription="@string/mostra_impostazioni"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/fab_main_add"
+            app:layout_constraintEnd_toEndOf="@+id/fab_main_add"
+            app:srcCompat="@drawable/ic_settings"
+            style="@style/custom_fab_small" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_main_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:onClick="@{clickHandler::onFABaddClicked}"
+            android:contentDescription="@string/aggiungi_transazione"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add"
+            style="@style/custom_fab" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BasicCashFlow</string>
+    <string name="inserisci_denaro">राशि डालें</string>
+    <string name="inserisci_descrizione">विवरण दर्ज करें</string>
+    <string name="valore_non_nullo">0 से भिन्न मान दर्ज करें</string>
+    <string name="saldo">शेष राशि</string>
+    <string name="confermi_eliminazione">हटाना पुष्टि करना?</string>
+    <string name="conferma">पुष्टि करें</string>
+    <string name="valuta">मुद्रा</string>
+    <string name="elimina_transazioni">सभी लेनदेन हटाएं</string>
+
+    <string name="conferma_eliminazione">हटाना पुष्टि करना</string>
+    <string name="conferma_eliminazione_body">क्या आप सभी लेनदेन हटाने की पुष्टि करते हैं? \nयह क्रिया रद्द नहीं की जा सकती!</string>
+    <string name="annulla">रद्द करें</string>
+    <string name="eliminazione_completata">हटाना पूरा हुआ</string>
+    <string name="eliminazione_annullata">हटाना रद्द कर दिया गया</string>
+    <string name="troppi_decimali">वर्तमान मुद्रा की अधिकतम दशमलव अंक का उपयोग किया जा रहा है</string>
+    <string name="aggiungi_transazione">लेनदेन जोड़ें</string>
+    <string name="mostra_impostazioni">सेटिंग्स दिखाएँ</string>
+    <string name="salva">सहेजें</string>
+    <string name="pulsante_elimina_trans">सभी लेनदेन हटाएं बटन</string>
+    <string name="elimina_transazione">लेनदेन हटाएं</string>
+    <string name="modifica_transazione">लेनदेन बदलें</string>
+</resources>

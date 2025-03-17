@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">基本现金流</string>
+    <string name="inserisci_denaro">输入金额</string>
+    <string name="inserisci_descrizione">输入描述</string>
+    <string name="valore_non_nullo">请输入非零值</string>
+    <string name="saldo">余额</string>
+    <string name="confermi_eliminazione">确认删除？</string>
+    <string name="conferma">确认</string>
+    <string name="valuta">货币</string>
+    <string name="elimina_transazioni">删除所有交易</string>
+
+    <string name="conferma_eliminazione">确认删除</string>
+    <string name="conferma_eliminazione_body">您确认要删除所有交易吗？\n无法撤销！</string>
+    <string name="annulla">取消</string>
+    <string name="eliminazione_completata">删除完成</string>
+    <string name="eliminazione_annullata">删除已取消</string>
+    <string name="troppi_decimali">超过当前货币的有效小数位数</string>
+    <string name="aggiungi_transazione">添加交易</string>
+    <string name="mostra_impostazioni">显示设置</string>
+    <string name="salva">保存</string>
+    <string name="pulsante_elimina_trans">删除所有交易按钮</string>
+    <string name="elimina_transazione">删除交易</string>
+    <string name="modifica_transazione">修改交易</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BasicCashFlow</string>
+    <string name="inserisci_denaro">Inserisci importo</string>
+    <string name="inserisci_descrizione">Inserisci descrizione</string>
+    <string name="valore_non_nullo">Inserisci un valore diverso da 0</string>
+    <string name="saldo">Saldo</string>
+    <string name="confermi_eliminazione">Confermi eliminazione?</string>
+    <string name="conferma">Conferma</string>
+    <string name="valuta">Valuta</string>
+    <string name="elimina_transazioni">Elimina tutte le transazioni</string>
+
+    <string name="conferma_eliminazione">Conferma eliminazione</string>
+    <string name="conferma_eliminazione_body">Confermi l\'eliminazione di tutte le transazioni?\n\nImpossibile annullare!</string>
+    <string name="annulla">Annulla</string>
+    <string name="eliminazione_completata">Eliminazione completata</string>
+    <string name="eliminazione_annullata">Eliminazione annullata</string>
+    <string name="troppi_decimali">Troppi decimali per la valuta corrente</string>
+    <string name="aggiungi_transazione">Aggiungi transazione</string>
+    <string name="mostra_impostazioni">Mostra impostazioni</string>
+    <string name="salva">Salva</string>
+    <string name="pulsante_elimina_trans">Pulsante elimina tutte le transazioni</string>
+    <string name="elimina_transazione">Elimina transazione</string>
+    <string name="modifica_transazione">Modifica transazione</string>
+</resources>

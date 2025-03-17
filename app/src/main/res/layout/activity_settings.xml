@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true" >
+
+    <data>
+        <variable
+            name="settings"
+            type="org.eagsoftware.basiccashflow.data.SettingsEntity" />
+        <variable
+            name="clickHandler"
+            type="org.eagsoftware.basiccashflow.clickhandlers.SettingsActivityClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/margin_quite_large"
+        tools:context=".activities.SettingsActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarFadeDuration="@integer/scrollbar_dur"
+            app:layout_constraintWidth_max="@dimen/max_list_width"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/txw_set_curr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:text="@string/valuta"
+                    app:layout_constraintBottom_toBottomOf="@+id/spn_set_curr"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/spn_set_curr" />
+
+                <Spinner
+                    android:id="@+id/spn_set_curr"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/min_touch"
+                    android:layout_marginStart="@dimen/margin_quite_small"
+                    android:layout_marginEnd="@dimen/margin_standard"
+                    android:gravity="end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@+id/txw_set_curr"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:selectedCurrencyCode="@={settings.currencyCode}"
+                    tools:listitem="@layout/item_spn_curr"/>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:text="@string/elimina_transazioni"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    style="@style/custom_imagebutton"
+                    android:layout_width="@dimen/min_touch"
+                    android:layout_height="@dimen/min_touch"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:layout_marginEnd="@dimen/margin_standard"
+                    android:contentDescription="@string/pulsante_elimina_trans"
+                    android:onClick="@{clickHandler.onDeleteAllClick}"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_delete"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/spn_set_curr" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

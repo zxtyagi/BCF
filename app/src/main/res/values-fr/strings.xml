@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BasicCashFlow</string>
+    <string name="inserisci_denaro">Entrez le montant</string>
+    <string name="inserisci_descrizione">Entrez la description</string>
+    <string name="valore_non_nullo">Entrez une valeur différente de 0</string>
+    <string name="saldo">Solde</string>
+    <string name="confermi_eliminazione">Confirmez la suppression ?</string>
+    <string name="conferma">Confirmer</string>
+    <string name="valuta">Monnaie</string>
+    <string name="elimina_transazioni">Supprimer toutes les transactions</string>
+
+    <string name="conferma_eliminazione">Confirmer la suppression</string>
+    <string name="conferma_eliminazione_body">Confirmez la suppression de toutes les transactions ?\n\nImpossible à annuler !</string>
+    <string name="annulla">Annuler</string>
+    <string name="eliminazione_completata">Suppression terminée</string>
+    <string name="eliminazione_annullata">Suppression annulée</string>
+    <string name="troppi_decimali">Troppe décimales pour la monnaie actuelle</string>
+    <string name="aggiungi_transazione">Ajouter une transaction</string>
+    <string name="mostra_impostazioni">Afficher les paramètres</string>
+    <string name="salva">Sauvegarder</string>
+    <string name="pulsante_elimina_trans">Bouton supprimer toutes les transactions</string>
+    <string name="elimina_transazione">Supprimer la transaction</string>
+    <string name="modifica_transazione">Modifier la transaction</string>
+</resources>

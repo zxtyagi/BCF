@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="custom_fab" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="tint">@color/white</item>
+        <item name="backgroundTint">?attr/colorSecondary</item>
+    </style>
+
+    <!-- Se si vuole implementare direttamente senza definire il layout aggiungere:
+     style="?attr/floatingActionButtonSmallStyle" al layout del FAB -->
+    <style name="custom_fab_small" parent="Widget.Material3.FloatingActionButton.Small.Secondary">
+        <item name="tint">@color/white</item>
+        <item name="backgroundTint">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="custom_imagebutton" parent="Widget.AppCompat.ImageButton">
+        <item name="backgroundTint">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md -->
+    <style name="custom_dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/custom_dialog.App</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/custom_dialog.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/custom_dialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/custom_dialog.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/custom_dialog.Button</item>
+    </style>
+
+    <style name="custom_dialog.App" parent="MaterialAlertDialog.Material3">
+        <item name="backgroundTint">?attr/backgroundColor</item>
+    </style>
+
+    <style name="custom_dialog.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="custom_dialog.Body" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="custom_dialog.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+
+</resources>

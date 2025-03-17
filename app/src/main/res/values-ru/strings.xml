@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BasicCashFlow</string>
+    <string name="inserisci_denaro">Введите сумму</string>
+    <string name="inserisci_descrizione">Введите описание</string>
+    <string name="valore_non_nullo">Введите значение, отличное от 0</string>
+    <string name="saldo">Баланс</string>
+    <string name="confermi_eliminazione">Подтвердить удаление?</string>
+    <string name="conferma">Подтвердить</string>
+    <string name="valuta">Валюта</string>
+    <string name="elimina_transazioni">Удалить все транзакции</string>
+
+    <string name="conferma_eliminazione">Подтвердить удаление</string>
+    <string name="conferma_eliminazione_body">Вы подтверждаете удаление всех транзакций?\n\nУдаление невозможно отменить!</string>
+    <string name="annulla">Отменить</string>
+    <string name="eliminazione_completata">Удаление завершено</string>
+    <string name="eliminazione_annullata">Удаление отменено</string>
+    <string name="troppi_decimali">Слишком много десятичных знаков для текущей валюты</string>
+    <string name="aggiungi_transazione">Добавить транзакцию</string>
+    <string name="mostra_impostazioni">Показать настройки</string>
+    <string name="salva">Сохранить</string>
+    <string name="pulsante_elimina_trans">Кнопка удалить все транзакции</string>
+    <string name="elimina_transazione">Удалить транзакцию</string>
+    <string name="modifica_transazione">Изменить транзакцию</string>
+</resources>

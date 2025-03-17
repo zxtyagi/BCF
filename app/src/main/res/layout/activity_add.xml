@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true" >
+
+    <data>
+        <variable
+            name="transaction"
+            type="org.eagsoftware.basiccashflow.data.TransactionEntity" />
+        <variable
+            name="clickHandler"
+            type="org.eagsoftware.basiccashflow.clickhandlers.AddActivityClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.AddActivity">
+
+
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/tgb_add_sign"
+            android:layout_width="@dimen/min_touch"
+            android:layout_height="@dimen/min_touch"
+            android:background="?attr/colorPrimary"
+            android:checked="@={transaction.isIncome}"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textOff="-"
+            android:textOn="+"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/edt_desc"
+            app:layout_constraintStart_toStartOf="@+id/edt_desc"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/edt_add_cash"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/min_touch"
+            android:layout_marginStart="@dimen/margin_standard"
+            android:ems="10"
+            android:hint="@string/inserisci_denaro"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:text="@={transaction.amountString}"
+            app:layout_constraintBottom_toBottomOf="@+id/tgb_add_sign"
+            app:layout_constraintEnd_toEndOf="@+id/edt_desc"
+            app:layout_constraintStart_toEndOf="@+id/tgb_add_sign"
+            app:layout_constraintTop_toTopOf="@+id/tgb_add_sign"
+            app:layout_constraintWidth_max="@dimen/max_textfields_width" />
+
+        <EditText
+            android:id="@+id/edt_desc"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/min_touch"
+            android:layout_marginHorizontal="@dimen/margin_add_act"
+            android:layout_marginTop="@dimen/margin_large"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/inserisci_descrizione"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:text="@={transaction.desc}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tgb_add_sign"
+            app:layout_constraintWidth_max="@dimen/max_textfields_width" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add_save"
+            style="@style/custom_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:contentDescription="@string/salva"
+            android:onClick="@{clickHandler::onFABclicked}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_save" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

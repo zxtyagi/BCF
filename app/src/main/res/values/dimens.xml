@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="min_touch">48dp</dimen>
+    <dimen name="margin_add_act">32dp</dimen>
+    <dimen name="margin_large">64dp</dimen>
+    <dimen name="margin_quite_large">32dp</dimen>
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="margin_quite_small">8dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_minimum">2dp</dimen>
+    <dimen name="header_elevation">4dp</dimen>
+    <dimen name="rcy_bottom_void_space">144dp</dimen>
+    <dimen name="max_textfields_width">488dp</dimen>
+    <dimen name="max_list_width">600dp</dimen>
+</resources>

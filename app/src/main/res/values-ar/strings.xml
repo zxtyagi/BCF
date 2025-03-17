@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BasicCashFlow</string>
+    <string name="inserisci_denaro">  هل أدخل المبلغ</string>
+    <string name="inserisci_descrizione">   أدخل وصفًا </string>
+    <string name="valore_non_nullo">    أدخل قيمة غير صفرية</string>
+    <string name="saldo">الرصيد</string>
+    <string name="confermi_eliminazione">هل تريد التأكيد على الحذف؟</string>
+    <string name="conferma">تأكيد</string>
+    <string name="valuta">العملة</string>
+    <string name="elimina_transazioni">حذف جميع المعاملات</string>
+
+    <string name="conferma_eliminazione">تأكيد الحذف</string>
+    <string name="conferma_eliminazione_body">هل تريد التأكيد على حذف جميع المعاملات؟  \nهذه العملية لا يمكن إلغائها!</string>
+    <string name="annulla">الغاء</string>
+    <string name="eliminazione_completata">تم الحذف بنجاح</string>
+    <string name="eliminazione_annullata">تم إلغاء عملية الحذف</string>
+    <string name="troppi_decimali">تم استخدام عدد كبير من الأرقام العشرية  </string>
+    <string name="aggiungi_transazione">أضف معاملة</string>
+    <string name="mostra_impostazioni">عرض الإعدادات</string>
+    <string name="salva">حفظ</string>
+    <string name="pulsante_elimina_trans">زر حذف جميع المعاملات</string>
+    <string name="elimina_transazione">حذف المعاملة</string>
+    <string name="modifica_transazione">تعديل المعاملة</string>
+</resources>
