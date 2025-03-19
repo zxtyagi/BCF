@@ -1,0 +1,7 @@
+BasicCashFlow permette di gestire entrate ed uscite di denaro nella maniera più semplice possibile.
+
+<b>Perchè ne ho bisogno?<b>
+L'app è pensata per chi vuole semplicemente tenere traccia dei flussi di denaro, in particolare il contante, senza funzioni aggiuntive e complicazioni varie, come la gestione di carte di credito, conti corrente o strumenti finanziari avanzati. Vuoi solamente tracciare come spendi i tuoi contanti? Questa è l'app giusta per te.
+
+<b>Come funziona</b>
+L'interfaccia è progettata per essere semplice ed intuitiva. Per aggiungere una nuova transazione basta cliccare sul pulsante "+" e riempire il modulo con l'importo e qualche parola di descrizione. Con un semplice swipe della transazione è possibile modificarla od eliminarla. Se vuoi cambiare la valuta, nelle impostazioni troverai tutte le monete utilizzate nel mondo.

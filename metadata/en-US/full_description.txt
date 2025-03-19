@@ -1,0 +1,7 @@
+BasicCashFlow allows you to manage income and expenses in the simplest way possible.
+
+<b>Why do I need it?</b>
+The app is designed for those who simply want to keep track of cash flow, especially cash, without additional features and complications, such as managing credit cards, bank accounts or advanced financial instruments. Do you just want to track how you spend your cash? This is the right app for you.
+
+<b>How it works</b>
+The interface is designed to be simple and intuitive. To add a new transaction, simply click on the "+" button and fill in the form with the amount and a few words of description. With a simple swipe of the transaction, you can modify or delete it. If you want to change the currency, in the settings you will find all the currencies used in the world.

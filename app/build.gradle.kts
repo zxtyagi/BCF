@@ -7,11 +7,12 @@ android {
     compileSdk = 35
 
     defaultConfig {
+        // Major.Patch - Need to keep this here for F-Droid
+        versionName = "1.0"
+        versionCode = 1
         applicationId = "org.eagsoftware.basiccashflow"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,12 +26,20 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures{
         dataBinding = true
+    }
+
+    // Necessary for F-Droid
+    dependenciesInfo{
+        includeInApk = false
+        includeInBundle = false
     }
 }
 
