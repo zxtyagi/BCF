@@ -18,9 +18,9 @@ The interface is designed to be simple and intuitive. To add a new transaction, 
 ## Tracking
 No advertising, no hidden tracking!
 
-<!--
+
 ## Installation
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="50">](https://f-droid.org/packages/org.eagsoftware.laundrynotes/) -->
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="50">](https://f-droid.org/packages/org.eagsoftware.basiccashflow/)
 
 ## Donations
 [<img src="https://liberapay.com/assets/widgets/donate.svg" border="0" alt="Donate using Liberapay">](https://liberapay.com/Minardil/donate)
