@@ -12,8 +12,8 @@ import java.util.List;
  * recyclerView al mutare dei dati.
  */
 public class MyDiffUtil extends DiffUtil.Callback {
-    private List<TransactionEntity> oldList;
-    private List<TransactionEntity> newList;
+    private final List<TransactionEntity> oldList;
+    private final List<TransactionEntity> newList;
 
     public MyDiffUtil(List<TransactionEntity> oldList, List<TransactionEntity> newList) {
         this.oldList = (oldList != null) ? oldList : Collections.emptyList();
@@ -42,8 +42,6 @@ public class MyDiffUtil extends DiffUtil.Callback {
         if (oldItemList.getId() != newItemList.getId()) return false;
         else if (!oldItemList.getAmount().equals(newItemList.getAmount())) return false;
         // Il seguente codice serve per confrontare le stringhe anche nel caso di null.
-        else if (oldItemList.getDesc() == null ? newItemList.getDesc() == null :
-                oldItemList.getDesc().equals(newItemList.getDesc())) return false;
-        return true;
+        else return oldItemList.getDesc() == null ? newItemList.getDesc() != null : !oldItemList.getDesc().equals(newItemList.getDesc());
     }
 }

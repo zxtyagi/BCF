@@ -1,10 +1,10 @@
 package org.eagsoftware.basiccashflow.data;
 
 import androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
-import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -16,22 +16,52 @@ import java.io.Serializable;
  * necessaria per passare un oggetto da un'activity ad un'altra tramite bundle.
  */
 
-@Entity(tableName = "transactions")
+@Entity(
+    tableName = "transactions",
+    foreignKeys = @ForeignKey(
+        entity = AccountEntity.class,
+        parentColumns = "id_account",
+        childColumns = "id_account",
+        onDelete = ForeignKey.CASCADE
+    ),
+    indices = {@Index("id_account")}
+)
 public class TransactionEntity extends BaseObservable implements Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="id_transaction")
     int id;
-    Float amount;
+    String amount;
     String desc;
     @ColumnInfo(name="is_income")
     boolean isIncome = false;
+    long timestamp;
+    @ColumnInfo(name="id_account")
+    int accountId;
+
 
     public TransactionEntity() {
+        this.accountId = 0; // Se 0 allora non è stato impostato (la numerazione ID di MySQL inizia da 1)
     }
 
     public TransactionEntity(Float amount, String desc) {
-        this.amount = amount;
+        this.amount = Float.toString(amount);
         this.desc = desc;
+        this.timestamp = System.currentTimeMillis();
+        this.accountId = 0;
+    }
+
+    public TransactionEntity(Float amount, String desc, long timestamp) {
+        this.amount = Float.toString(amount);
+        this.desc = desc;
+        this.timestamp = timestamp;
+        this.accountId = 0;
+    }
+
+    public TransactionEntity(Float amount, String desc, long timestamp, int accountId) {
+        this.amount = Float.toString(amount);
+        this.desc = desc;
+        this.timestamp = timestamp;
+        this.accountId = accountId;
     }
 
     public int getId() {
@@ -42,13 +72,18 @@ public class TransactionEntity extends BaseObservable implements Serializable {
         this.id = id;
     }
 
-    public Float getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(Float amount) {
-        this.amount = amount;
-        notifyPropertyChanged(BR.amountString);     // l'UI sta usando amountString
+    public Float getFloatAmount() {
+        return (amount == null) ? null : Float.parseFloat(amount);
+    }
+
+    public void setAmount(String amount) {
+        // verifica se la stringa è numero (intero o decimale) tramite regex
+        if (amount != null && amount.matches("\\d+(\\.\\d+)?")) this.amount = amount;
+        else this.amount = null;
     }
 
     public String getDesc() {
@@ -67,22 +102,20 @@ public class TransactionEntity extends BaseObservable implements Serializable {
         isIncome = income;
     }
 
-    /* ACTIVITY_ADD DATABINDING METHODS */
-
-    @Bindable
-    public String getAmountString() {
-        return (amount != null) ? Float.toString(amount) : "";
+    public long getTimestamp() {
+        return timestamp;
     }
 
-    public void setAmountString(String amountString){
-        try{
-            amount = Float.parseFloat(amountString);
-        }catch(NumberFormatException exc){
-            amount = null;
-        }
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
+    public int getAccountId(){
+        return accountId;
+    }
 
-
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
 
 }

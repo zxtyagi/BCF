@@ -60,12 +60,8 @@ public class RecyclerTransactionsAdapter extends RecyclerView.Adapter<RecyclerTr
         holder.bndItem.setTransaction(currTransaction);
         if(currTransaction.isIsIncome()) {
             holder.bndItem.txwRcyTransAmount.setTextColor(COLOR_TXT_INCOME);
-            holder.bndItem.txwRcyTransSign.setTextColor(COLOR_TXT_INCOME);
-            holder.bndItem.txwRcyTransCurr.setTextColor(COLOR_TXT_INCOME);
         } else {
             holder.bndItem.txwRcyTransAmount.setTextColor(COLOR_TXT_OUTCOME);
-            holder.bndItem.txwRcyTransSign.setTextColor(COLOR_TXT_OUTCOME);
-            holder.bndItem.txwRcyTransCurr.setTextColor(COLOR_TXT_OUTCOME);
         }
         // Aggiunge uno spazio dopo l'ultimo elemento (per evitare sovrapposizioni coi FAB) altrimenti resetta
         RecyclerView.LayoutParams lytParams = (RecyclerView.LayoutParams) holder.bndItem.getRoot().getLayoutParams();

@@ -19,7 +19,26 @@
     <string name="aggiungi_transazione">Aggiungi transazione</string>
     <string name="mostra_impostazioni">Mostra impostazioni</string>
     <string name="salva">Salva</string>
-    <string name="pulsante_elimina_trans">Pulsante elimina tutte le transazioni</string>
+    <string name="desc_elimina_trans">Pulsante elimina tutte le transazioni</string>
     <string name="elimina_transazione">Elimina transazione</string>
     <string name="modifica_transazione">Modifica transazione</string>
+    <string name="riavvio_necessario">Riavvio necessario</string>
+    <string name="riavvio_msg">L\'app deve essere riavviata per il corretto funzionamento.</string>
+    <string name="riavvia">Riavvia</string>
+    <string name="copia_errore">Copia errore</string>
+    <string name="errore_copiato">Messaggio di errore copiato negli appunti</string>
+    <string name="impossibile_esportare">Impossibile esportare</string>
+    <string name="impossibile_importare">Impossibile importare</string>
+    <string name="salva_backup">Salva backup nel dispositivo</string>
+    <string name="carica_backup">Carica backup dal dispositivo</string>
+    <string name="solo_un_momento">Solo un momento…</string>
+    <string name="backup_esportato">Il backup è stato esportato correttamente.</string>
+    <string name="il_mio_conto">Il mio conto</string>
+    <string name="visualizzazione">Visualizzazione</string>
+    <string name="forza_il_simbolo">Forza il simbolo valuta dopo la cifra</string>
+    <string name="database">Database</string>
+    <string name="desc_carica_bkp">Clicca per caricare il backup dal dispositivo</string>
+    <string name="desc_salva_bkp">Clicca per salvare il backup sul dispositivo</string>
+    <string name="desc_forza_simbolo">Spunta per forzare la visualizzazione del simbolo di valuta dopo la cifra.</string>
+    <string name="backup_importato">Il backup è stato importato correttamente.</string>
 </resources>

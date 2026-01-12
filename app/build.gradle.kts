@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "org.eagsoftware.basiccashflow"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         // Major.Patch - Need to keep this here for F-Droid
@@ -12,7 +12,7 @@ android {
         versionCode = 1
         applicationId = "org.eagsoftware.basiccashflow"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,6 +24,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            // Necessario per eseguire su dispositivo senza disinstallare versione release esistente
+            applicationIdSuffix = ".debug"
         }
     }
 

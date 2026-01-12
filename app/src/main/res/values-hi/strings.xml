@@ -19,7 +19,26 @@
     <string name="aggiungi_transazione">लेनदेन जोड़ें</string>
     <string name="mostra_impostazioni">सेटिंग्स दिखाएँ</string>
     <string name="salva">सहेजें</string>
-    <string name="pulsante_elimina_trans">सभी लेनदेन हटाएं बटन</string>
+    <string name="desc_elimina_trans">सभी लेनदेन हटाएं बटन</string>
     <string name="elimina_transazione">लेनदेन हटाएं</string>
     <string name="modifica_transazione">लेनदेन बदलें</string>
+    <string name="riavvio_necessario">रिस्टार्ट आवश्यक है</string>
+    <string name="riavvio_msg">ऐप के सही संचालन के लिए पुनरारंभ किया जाना चाहिए।</string>
+    <string name="copia_errore">कॉपी में त्रुटि</string>
+    <string name="riavvia">पुनरारंभ</string>
+    <string name="errore_copiato">त्रुटि संदेश क्लिपबोर्ड में कॉपी किया गया</string>
+    <string name="impossibile_esportare">निर्यात करने में असमर्थ</string>
+    <string name="impossibile_importare">आयात करने में असमर्थ</string>
+    <string name="salva_backup">बैकअप को डिवाइस में सेव करें</string>
+    <string name="carica_backup">डिवाइस से बैकअप लोड करें</string>
+    <string name="solo_un_momento">बस एक पल…</string>
+    <string name="backup_esportato">बैकअप सफलतापूर्वक निर्यात किया गया है</string>
+    <string name="il_mio_conto">मेरा खाता</string>
+    <string name="database">डेटाबेस</string>
+    <string name="visualizzazione">दृश्यांकन</string>
+    <string name="forza_il_simbolo">संख्या के बाद मुद्रा चिह्न को मजबूर करें</string>
+    <string name="desc_carica_bkp">डिवाइस से बैकअप लोड करने के लिए क्लिक करें</string>
+    <string name="desc_salva_bkp">डिवाइस में बैकअप सहेजने के लिए क्लिक करें</string>
+    <string name="desc_forza_simbolo">संख्या के बाद मुद्रा चिह्न को प्रदर्शित करने के लिए चेक करें</string>
+    <string name="backup_importato">बैकअप सफलतापूर्वक आयात किया गया है</string>
 </resources>

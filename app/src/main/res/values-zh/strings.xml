@@ -19,7 +19,26 @@
     <string name="aggiungi_transazione">添加交易</string>
     <string name="mostra_impostazioni">显示设置</string>
     <string name="salva">保存</string>
-    <string name="pulsante_elimina_trans">删除所有交易按钮</string>
+    <string name="desc_elimina_trans">删除所有交易按钮</string>
     <string name="elimina_transazione">删除交易</string>
     <string name="modifica_transazione">修改交易</string>
+    <string name="riavvio_necessario">重启是必要的</string>
+    <string name="riavvio_msg">应用程序需要重启以确保正常运行</string>
+    <string name="copia_errore">拷贝错误</string>
+    <string name="riavvia">重启</string>
+    <string name="errore_copiato">错误信息已复制到剪贴板</string>
+    <string name="impossibile_esportare">无法导出</string>
+    <string name="impossibile_importare">无法导入</string>
+    <string name="salva_backup">将备份保存到设备</string>
+    <string name="carica_backup">从设备加载备份</string>
+    <string name="solo_un_momento">等一下…</string>
+    <string name="backup_esportato">备份已成功导出</string>
+    <string name="il_mio_conto">我的账户</string>
+    <string name="database">数据库</string>
+    <string name="visualizzazione">可视化</string>
+    <string name="forza_il_simbolo">强制在数字后面添加货币符号</string>
+    <string name="desc_carica_bkp">点击从设备加载备份</string>
+    <string name="desc_salva_bkp">点击将备份保存到设备</string>
+    <string name="desc_forza_simbolo">勾选以强制在数字后显示货币符号</string>
+    <string name="backup_importato">备份已成功导入</string>
 </resources>

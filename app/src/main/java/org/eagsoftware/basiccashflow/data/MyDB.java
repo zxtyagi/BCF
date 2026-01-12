@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {TransactionEntity.class, SettingsEntity.class}, version = 1)
+@Database(entities = {TransactionEntity.class, SettingsEntity.class, AccountEntity.class}, version = 1)
 public abstract class MyDB extends RoomDatabase {
     private static MyDB db;
 
@@ -21,4 +21,12 @@ public abstract class MyDB extends RoomDatabase {
         }
         return db;
     }
+
+    public static synchronized void closeInstance() {
+        if(db != null) {
+            db.close();
+            db = null;
+        }
+    }
+
 }

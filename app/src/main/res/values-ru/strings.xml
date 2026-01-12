@@ -19,7 +19,26 @@
     <string name="aggiungi_transazione">Добавить транзакцию</string>
     <string name="mostra_impostazioni">Показать настройки</string>
     <string name="salva">Сохранить</string>
-    <string name="pulsante_elimina_trans">Кнопка удалить все транзакции</string>
+    <string name="desc_elimina_trans">Кнопка удалить все транзакции</string>
     <string name="elimina_transazione">Удалить транзакцию</string>
     <string name="modifica_transazione">Изменить транзакцию</string>
+    <string name="riavvio_necessario">Перезагрузка необходима</string>
+    <string name="riavvio_msg">Приложение необходимо перезагрузить для корректной работы.</string>
+    <string name="copia_errore">Ошибка копирования</string>
+    <string name="riavvia">Перезагрузка</string>
+    <string name="errore_copiato">Сообщение об ошибке скопировано в буфер обмена</string>
+    <string name="impossibile_esportare">Невозможно экспортировать</string>
+    <string name="impossibile_importare">Невозможно импортировать</string>
+    <string name="salva_backup">Сохранить резервную копию на устройстве</string>
+    <string name="carica_backup">Загрузить резервную копию с устройства</string>
+    <string name="solo_un_momento">Один момент…</string>
+    <string name="backup_esportato">Резервная копия успешно экспортирована.</string>
+    <string name="il_mio_conto">Мой аккаунт</string>
+    <string name="database">База данных</string>
+    <string name="visualizzazione">Визуализация</string>
+    <string name="forza_il_simbolo">Принудительно ставьте символ валюты после числа</string>
+    <string name="desc_carica_bkp">Нажмите, чтобы загрузить резервную копию с устройства</string>
+    <string name="desc_salva_bkp">Нажмите, чтобы сохранить резервную копию на устройстве</string>
+    <string name="desc_forza_simbolo">Установите флажок, чтобы принудительно отображать символ валюты после числа</string>
+    <string name="backup_importato">Резервная копия успешно импортирована.</string>
 </resources>

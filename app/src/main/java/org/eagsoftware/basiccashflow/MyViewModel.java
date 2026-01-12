@@ -1,12 +1,16 @@
 package org.eagsoftware.basiccashflow;
 
 import android.app.Application;
+import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
+import org.eagsoftware.basiccashflow.data.AccountEntity;
+import org.eagsoftware.basiccashflow.data.BackupDBManager;
 import org.eagsoftware.basiccashflow.data.MyRepository;
 import org.eagsoftware.basiccashflow.data.SettingsEntity;
 import org.eagsoftware.basiccashflow.data.TransactionEntity;
@@ -17,12 +21,18 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class MyViewModel extends AndroidViewModel {
-    MyRepository repository;
+    final MyRepository repository;
     LiveData<List<TransactionEntity>> transactionsList;
-    MutableLiveData<Float> balance;
+    MutableLiveData<String> balance;
 
     LiveData<SettingsEntity> settings;
-    MutableLiveData<Currency> currency = new MutableLiveData<>();
+    final MutableLiveData<Currency> currency = new MutableLiveData<>();
+
+    LiveData<List<AccountEntity>> accountsList;
+    final MutableLiveData<AccountEntity> activeAccount = new MutableLiveData<>();
+
+
+    final MutableLiveData<Boolean> copyingDBInProgress = new MutableLiveData<Boolean>(false);
 
 
     public MyViewModel(@NonNull Application application) {
@@ -31,6 +41,7 @@ public class MyViewModel extends AndroidViewModel {
     }
 
     public void addTransaction(TransactionEntity transaction){
+        if (transaction.getAccountId() < 1 ) return;
         repository.addTransaction(transaction);
     }
 
@@ -47,7 +58,7 @@ public class MyViewModel extends AndroidViewModel {
         return transactionsList;
     }
 
-    public LiveData<Float> getBalance(){
+    public LiveData<String> getBalance(){
         if (balance == null) {
             balance = new MutableLiveData<>();
             updateBalance();
@@ -56,10 +67,10 @@ public class MyViewModel extends AndroidViewModel {
     }
 
     public void updateBalance(){
-        repository.getBalance().thenAccept(new Consumer<Float>() {
+        repository.getBalance().thenAccept(new Consumer<String>() {
             @Override
-            public void accept(Float aFloat) {
-                balance.postValue(aFloat);
+            public void accept(String sValue) {
+                balance.postValue(sValue);
             }
         });
     }
@@ -94,4 +105,60 @@ public class MyViewModel extends AndroidViewModel {
         repository.updateSettings(userSettings);
     }
 
+    public void exportDB(Uri destUri, BackupDBManager.Callback callback) {
+        copyingDBInProgress.setValue(true);
+
+        repository.exportDB(destUri, new BackupDBManager.Callback() {
+            @Override
+            public void onComplete(Exception error) {
+                // Aggiorna il livedata
+                copyingDBInProgress.postValue(false);
+                //innesca il callback passato come parametro
+                if (callback != null) callback.onComplete(error);
+            }
+        });
+    }
+
+    public void importDB(Uri sourceUri, BackupDBManager.Callback callback) {
+        copyingDBInProgress.setValue(true);
+
+        repository.importDB(sourceUri, new BackupDBManager.Callback() {
+            @Override
+            public void onComplete(Exception error) {
+                // aggiorna il livedata
+                copyingDBInProgress.postValue(false);
+                // innesca il callback passato come parametro
+                if (callback != null) callback.onComplete(error);
+            }
+        });
+    }
+
+    public LiveData<Boolean> getCopyingDBInProgress(){
+        return copyingDBInProgress;
+    }
+
+
+    /* ACCOUNTS METHODS */
+
+
+    public void newAccount(AccountEntity account) {
+        repository.insertAccount(account);
+    }
+
+    public LiveData<List<AccountEntity>>getAccountsList() {
+        if (accountsList == null) accountsList = repository.getAllAccounts();
+        return accountsList;
+    }
+
+    public LiveData<AccountEntity> getActiveAccount(){
+        if (activeAccount.getValue() == null)
+            getAccountsList().observeForever(new Observer<List<AccountEntity>>() {
+                @Override
+                public void onChanged(List<AccountEntity> accounts) {
+                    if (accounts != null && !accounts.isEmpty())
+                        activeAccount.setValue(accounts.get(0));
+                }
+            });
+        return activeAccount;
+    }
 }

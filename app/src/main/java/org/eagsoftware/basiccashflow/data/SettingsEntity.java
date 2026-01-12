@@ -15,13 +15,16 @@ public class SettingsEntity extends BaseObservable implements Serializable {
     @ColumnInfo(name="id_settings")
     int id;
     String currencyCode;
+    @ColumnInfo(name="force_symbol")
+    boolean forceSymbolAfter;
 
     public SettingsEntity() {
     }
 
-    public SettingsEntity(int id, String currencyCode) {
+    public SettingsEntity(int id, String currencyCode, boolean forceSymbolAfter) {
         this.id = id;
         this.currencyCode = currencyCode;
+        this.forceSymbolAfter = forceSymbolAfter;
     }
 
     public int getId() {
@@ -40,5 +43,15 @@ public class SettingsEntity extends BaseObservable implements Serializable {
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
         notifyPropertyChanged(BR.currencyCode);
+    }
+
+    @Bindable
+    public boolean isForceSymbolAfter() {
+        return forceSymbolAfter;
+    }
+
+    public void setForceSymbolAfter(boolean forceSymbolAfter){
+        this.forceSymbolAfter = forceSymbolAfter;
+        notifyPropertyChanged(BR.forceSymbolAfter);
     }
 }

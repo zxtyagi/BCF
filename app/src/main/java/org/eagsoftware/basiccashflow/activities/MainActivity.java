@@ -14,7 +14,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -23,6 +22,7 @@ import org.eagsoftware.basiccashflow.MyViewModel;
 import org.eagsoftware.basiccashflow.R;
 import org.eagsoftware.basiccashflow.adapters.RecyclerTransactionsAdapter;
 import org.eagsoftware.basiccashflow.clickhandlers.MainActivityClickHandler;
+import org.eagsoftware.basiccashflow.data.AccountEntity;
 import org.eagsoftware.basiccashflow.data.SettingsEntity;
 import org.eagsoftware.basiccashflow.data.TransactionEntity;
 import org.eagsoftware.basiccashflow.databinding.ActivityMainBinding;
@@ -107,13 +107,23 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(SettingsEntity settingsEntity) {
                 if (settingsEntity == null){
                     // Se non sono stati ancora definiti dei salvataggi
-                    SettingsEntity defSets = new SettingsEntity(Constants.USER_ID, "EUR");
+                    SettingsEntity defSets = new SettingsEntity(Constants.USER_ID, "EUR", false);
                     viewModel.newSettings(defSets);
                 } else {
                     Currency curr = viewModel.getCurrency().getValue();
                     // Se il codice della valuta è diverso, aggiorna l'oggetto Currency del viewModel
                     if (curr == null || !settingsEntity.getCurrencyCode().equals(curr.getCurrencyCode()))
                         viewModel.setCurrency(Currency.getInstance(settingsEntity.getCurrencyCode()));
+                }
+            }
+        });
+
+        viewModel.getAccountsList().observe(this, new Observer<List<AccountEntity>>() {
+            @Override
+            public void onChanged(List<AccountEntity> accountEntities) {
+                if (accountEntities.isEmpty()) {
+                    AccountEntity accMain = new AccountEntity(getString(R.string.il_mio_conto));
+                    viewModel.newAccount(accMain);
                 }
             }
         });

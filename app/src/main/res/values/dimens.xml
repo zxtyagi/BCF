@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress UnusedResources -->
 <resources>
     <dimen name="min_touch">48dp</dimen>
     <dimen name="margin_add_act">32dp</dimen>

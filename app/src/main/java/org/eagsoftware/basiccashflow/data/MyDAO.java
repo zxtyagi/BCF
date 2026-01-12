@@ -47,4 +47,12 @@ public interface MyDAO {
     @Query("SELECT * FROM settings WHERE id_settings = :userId")
     LiveData<SettingsEntity> getUserSettings(int userId);
 
+
+
+    /* ACCOUNTS METHODS */
+    @Insert
+    void insert(AccountEntity account);
+
+    @Query("SELECT * FROM accounts ORDER BY id_account DESC")
+    LiveData<List<AccountEntity>> getAllAccounts();
 }

@@ -19,7 +19,26 @@
     <string name="aggiungi_transazione">Agregar transacción</string>
     <string name="mostra_impostazioni">Mostrar ajustes</string>
     <string name="salva">Guardar</string>
-    <string name="pulsante_elimina_trans">Botón eliminar todas las transacciones</string>
+    <string name="desc_elimina_trans">Botón eliminar todas las transacciones</string>
     <string name="elimina_transazione">Eliminar transacción</string>
     <string name="modifica_transazione">Modificar transacción</string>
+    <string name="riavvio_necessario">Reinicio necesario</string>
+    <string name="riavvio_msg">La aplicación debe reiniciarse para un correcto funcionamiento.</string>
+    <string name="copia_errore">Error de copia</string>
+    <string name="riavvia">Reiniciar</string>
+    <string name="errore_copiato">Mensaje de error copiado en el portapapeles</string>
+    <string name="impossibile_esportare">Imposible exportar</string>
+    <string name="impossibile_importare">Imposible importar</string>
+    <string name="salva_backup">Guardar copia de seguridad en el dispositivo</string>
+    <string name="carica_backup">Cargar copia de seguridad desde el dispositivo</string>
+    <string name="solo_un_momento">Solo un momento…</string>
+    <string name="backup_esportato">La copia de seguridad se ha exportado correctamente.</string>
+    <string name="il_mio_conto">Mi cuenta</string>
+    <string name="database">base de datos</string>
+    <string name="visualizzazione">Visualización</string>
+    <string name="forza_il_simbolo">Forzar el símbolo de moneda después del número</string>
+    <string name="desc_carica_bkp">Haz clic para cargar la copia de seguridad desde el dispositivo</string>
+    <string name="desc_salva_bkp">Haz clic para guardar la copia de seguridad en el dispositivo</string>
+    <string name="desc_forza_simbolo">Marca para forzar la visualización del símbolo de moneda después del número</string>
+    <string name="backup_importato">La copia de seguridad se ha importado correctamente.</string>
 </resources>

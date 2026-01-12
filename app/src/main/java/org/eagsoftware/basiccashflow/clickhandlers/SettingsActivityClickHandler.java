@@ -4,19 +4,32 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.eagsoftware.basiccashflow.MyViewModel;
 import org.eagsoftware.basiccashflow.R;
 
-public class SettingsActivityClickHandler {
-    Context context;
-    MyViewModel viewModel;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
-    public SettingsActivityClickHandler(Context context, MyViewModel viewModel) {
+public class SettingsActivityClickHandler {
+    final Context context;
+    final MyViewModel viewModel;
+    final ActivityResultLauncher<String> exportDBLauncher;
+    final ActivityResultLauncher<String[]> importDBLauncher;
+
+    public SettingsActivityClickHandler(Context context, MyViewModel viewModel,
+                                        ActivityResultLauncher<String> exportDBLauncher,
+                                        ActivityResultLauncher<String[]> importDBLauncher) {
         this.viewModel = viewModel;
         this.context = context;
+        this.exportDBLauncher = exportDBLauncher;
+        this.importDBLauncher = importDBLauncher;
+
     }
 
     public void onDeleteAllClick(View view){
@@ -43,4 +56,18 @@ public class SettingsActivityClickHandler {
                 });
         bldDlg.create().show();
     }
+
+
+    @SuppressWarnings("unused")
+    public void onExportDBClick(View view){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
+        String timestamp = sdf.format(new Date());
+        exportDBLauncher.launch("basicCashFlow_db_" + timestamp + ".bkp");
+    }
+
+    @SuppressWarnings("unused")
+    public void onImportDBClick(View view) {
+        importDBLauncher.launch(new String[]{"*/*"});
+    }
+
 }

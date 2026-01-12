@@ -11,8 +11,8 @@ import org.eagsoftware.basiccashflow.activities.SettingsActivity;
 
 /** @noinspection unused*/
 public class MainActivityClickHandler {
-    Context context;
-    MyViewModel viewModel;
+    final Context context;
+    final MyViewModel viewModel;
 
     public MainActivityClickHandler(Context context, MyViewModel viewModel) {
         this.context = context;

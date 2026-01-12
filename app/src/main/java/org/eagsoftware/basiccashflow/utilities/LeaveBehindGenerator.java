@@ -10,8 +10,6 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.eagsoftware.basiccashflow.R;
-
 /**
  * Questa classe permette di creare un leave behind layout per lo swipe laterale di un elemento
  * dell'interfaccia utente implementato con un {@link androidx.recyclerview.widget.ItemTouchHelper }.
@@ -28,12 +26,14 @@ import org.eagsoftware.basiccashflow.R;
  * </ul>
  */
 public class LeaveBehindGenerator {
-    private RecyclerView recyclerView;
-    private Context context;
-    Integer layoutDXid;
-    Integer layoutSXid;
+    private final RecyclerView recyclerView;
+    private final Context context;
+    final Integer layoutDXid;
+    final Integer layoutSXid;
 
+    @SuppressWarnings("unused")
     private View layoutDX;
+    @SuppressWarnings("unused")
     private View layoutSX;
 
     /**

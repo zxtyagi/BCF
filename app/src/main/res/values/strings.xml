@@ -19,7 +19,26 @@
     <string name="aggiungi_transazione">Add transaction</string>
     <string name="mostra_impostazioni">Show settings</string>
     <string name="salva">Save</string>
-    <string name="pulsante_elimina_trans">Delete all transactions button</string>
+    <string name="desc_elimina_trans">Delete all transactions button</string>
     <string name="elimina_transazione">Delete transaction</string>
     <string name="modifica_transazione">Modify transaction</string>
+    <string name="riavvio_necessario">Restart required</string>
+    <string name="riavvio_msg">The app needs to be restarted for proper functioning.</string>
+    <string name="copia_errore">Copy error</string>
+    <string name="riavvia">Restart</string>
+    <string name="errore_copiato">Error message copied to clipboard</string>
+    <string name="impossibile_esportare">Unable to export</string>
+    <string name="impossibile_importare">Unable to import</string>
+    <string name="salva_backup">Save backup to device</string>
+    <string name="carica_backup">Load backup from device</string>
+    <string name="solo_un_momento">Just a moment…</string>
+    <string name="backup_esportato">The backup has been exported successfully.</string>
+    <string name="il_mio_conto">My account</string>
+    <string name="database">Database</string>
+    <string name="visualizzazione">View</string>
+    <string name="forza_il_simbolo">Force the currency symbol after the amount</string>
+    <string name="desc_carica_bkp">Click to load the backup from the device</string>
+    <string name="desc_salva_bkp">Click to save the backup to the device</string>
+    <string name="desc_forza_simbolo">Check to force the currency symbol to be displayed after the number</string>
+    <string name="backup_importato">The backup has been imported successfully.</string>
 </resources>

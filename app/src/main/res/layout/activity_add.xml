@@ -48,7 +48,7 @@
             android:hint="@string/inserisci_denaro"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
-            android:text="@={transaction.amountString}"
+            android:text="@={transaction.amount}"
             app:layout_constraintBottom_toBottomOf="@+id/tgb_add_sign"
             app:layout_constraintEnd_toEndOf="@+id/edt_desc"
             app:layout_constraintStart_toEndOf="@+id/tgb_add_sign"

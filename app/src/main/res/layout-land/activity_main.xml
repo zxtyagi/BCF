@@ -50,31 +50,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="@dimen/header_elevation"
-            android:text="@{String.valueOf(viewModel.balance)}"
+            app:amountString="@{viewModel.balance}"
+            app:currencyCode="@{viewModel.currency.currencyCode}"
+            app:forceSymbolAfter="@{viewModel.settings.forceSymbolAfter}"
             android:textSize="32sp"
             android:textStyle="bold"
             android:layout_marginEnd="@dimen/margin_quite_small"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/txw_balance_curr"
+            app:layout_constraintEnd_toStartOf="@+id/rcw_trans"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txw_balance_label"
             app:layout_constraintHorizontal_chainStyle="packed"
-            tools:text="8888.8" />
-
-        <TextView
-            android:id="@+id/txw_balance_curr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/header_elevation"
-            android:text="@{viewModel.currency.symbol}"
-            android:textSize="32sp"
-            app:layout_constraintBottom_toBottomOf="@+id/txw_balance"
-            app:layout_constraintEnd_toStartOf="@+id/rcw_trans"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txw_balance"
-            app:layout_constraintTop_toTopOf="@+id/txw_balance"
-            tools:text="€" />
+            tools:text="8888.8 €" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcw_trans"

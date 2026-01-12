@@ -8,7 +8,7 @@
     android:paddingHorizontal="@dimen/margin_standard"
     android:background="@color/dark_red"
     tools:layout_height="129px"
-    tools:ignore="PxUsage">
+    tools:ignore="Overdraw,PxUsage">
 
     <ImageView
         android:id="@+id/imageView"

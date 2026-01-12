@@ -6,12 +6,17 @@
     android:fitsSystemWindows="true" >
 
     <data>
+        <import type="android.view.View" />
+
         <variable
             name="settings"
             type="org.eagsoftware.basiccashflow.data.SettingsEntity" />
         <variable
             name="clickHandler"
             type="org.eagsoftware.basiccashflow.clickhandlers.SettingsActivityClickHandler" />
+        <variable
+            name="viewModel"
+            type="org.eagsoftware.basiccashflow.MyViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,11 +27,12 @@
         tools:context=".activities.SettingsActivity">
 
         <ScrollView
+            android:id="@+id/srw_set"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:scrollbarFadeDuration="@integer/scrollbar_dur"
             app:layout_constraintWidth_max="@dimen/max_list_width"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/prb_set"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" >
@@ -35,6 +41,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/txw_set_sep1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:paddingHorizontal="@dimen/margin_standard"
+                    android:paddingVertical="@dimen/margin_small"
+                    android:text="@string/visualizzazione"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/txw_set_curr"
@@ -53,39 +72,139 @@
                     android:layout_marginStart="@dimen/margin_quite_small"
                     android:layout_marginEnd="@dimen/margin_standard"
                     android:gravity="end"
+                    android:layout_marginTop="@dimen/margin_standard"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1"
                     app:layout_constraintStart_toEndOf="@+id/txw_set_curr"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txw_set_sep1"
                     app:selectedCurrencyCode="@={settings.currencyCode}"
                     tools:listitem="@layout/item_spn_curr"/>
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/txw_set_sym"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_standard"
+                    android:text="@string/forza_il_simbolo"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbx_set_sym"
+                    app:layout_constraintEnd_toStartOf="@+id/cbx_set_sym"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cbx_set_sym" />
+
+                <CheckBox
+                    android:id="@+id/cbx_set_sym"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:layout_marginEnd="@dimen/margin_standard"
+                    android:checked="@={settings.forceSymbolAfter}"
+                    android:contentDescription="@string/desc_forza_simbolo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spn_set_curr" />
+
+                <TextView
+                    android:id="@+id/txw_set_sep2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:paddingHorizontal="@dimen/margin_standard"
+                    android:paddingVertical="@dimen/margin_small"
+                    android:text="@string/database"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbx_set_sym" />
+
+                <TextView
+                    android:id="@+id/txw_set_exp_db"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_standard"
-                    android:text="@string/elimina_transazioni"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+                    android:text="@string/salva_backup"
+                    app:layout_constraintBottom_toBottomOf="@+id/imb_set_exp_db"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageButton" />
+                    app:layout_constraintTop_toTopOf="@+id/imb_set_exp_db" />
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/imb_set_exp_db"
                     style="@style/custom_imagebutton"
                     android:layout_width="@dimen/min_touch"
                     android:layout_height="@dimen/min_touch"
                     android:layout_marginTop="@dimen/margin_standard"
                     android:layout_marginEnd="@dimen/margin_standard"
-                    android:contentDescription="@string/pulsante_elimina_trans"
+                    android:contentDescription="@string/desc_salva_bkp"
+                    android:onClick="@{clickHandler.onExportDBClick}"
+                    android:src="@drawable/ic_save"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@+id/txw_set_exp_db"
+                    app:layout_constraintTop_toBottomOf="@+id/txw_set_sep2" />
+
+                <TextView
+                    android:id="@+id/txw_set_imp_db"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:text="@string/carica_backup"
+                    app:layout_constraintBottom_toBottomOf="@+id/imb_set_imp_db"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imb_set_imp_db" />
+
+                <ImageButton
+                    android:id="@+id/imb_set_imp_db"
+                    style="@style/custom_imagebutton"
+                    android:layout_width="@dimen/min_touch"
+                    android:layout_height="@dimen/min_touch"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:layout_marginEnd="@dimen/margin_standard"
+                    android:contentDescription="@string/desc_carica_bkp"
+                    android:onClick="@{clickHandler.onImportDBClick}"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_import"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imb_set_exp_db" />
+
+                <TextView
+                    android:id="@+id/txw_set_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:text="@string/elimina_transazioni"
+                    app:layout_constraintBottom_toBottomOf="@+id/imb_set_del"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imb_set_del" />
+
+                <ImageButton
+                    android:id="@+id/imb_set_del"
+                    android:layout_width="@dimen/min_touch"
+                    android:layout_height="@dimen/min_touch"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:layout_marginEnd="@dimen/margin_standard"
+                    android:contentDescription="@string/desc_elimina_trans"
                     android:onClick="@{clickHandler.onDeleteAllClick}"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_delete"
+                    android:backgroundTint="@color/dark_red"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1"
-                    app:layout_constraintStart_toEndOf="@+id/textView2"
-                    app:layout_constraintTop_toBottomOf="@+id/spn_set_curr" />
+                    app:layout_constraintStart_toEndOf="@+id/txw_set_del"
+                    app:layout_constraintTop_toBottomOf="@+id/imb_set_imp_db" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/prb_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="@{viewModel.copyingDBInProgress ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/srw_set"
+            style="?android:attr/progressBarStyleHorizontal" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

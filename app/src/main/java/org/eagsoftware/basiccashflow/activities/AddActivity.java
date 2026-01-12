@@ -17,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.eagsoftware.basiccashflow.MyViewModel;
 import org.eagsoftware.basiccashflow.R;
 import org.eagsoftware.basiccashflow.clickhandlers.AddActivityClickHandler;
+import org.eagsoftware.basiccashflow.data.AccountEntity;
 import org.eagsoftware.basiccashflow.data.SettingsEntity;
 import org.eagsoftware.basiccashflow.data.TransactionEntity;
 import org.eagsoftware.basiccashflow.databinding.ActivityAddBinding;
@@ -51,6 +52,8 @@ public class AddActivity extends AppCompatActivity {
         setMVVMcomponents();
 
         checkFractionDigits();
+
+        setObserver();
 
         bndAdd.edtAddCash.requestFocus();
     }
@@ -97,6 +100,15 @@ public class AddActivity extends AppCompatActivity {
                     };
                     bndAdd.edtAddCash.addTextChangedListener(textWatcher);
                 }
+            }
+        });
+    }
+
+    private void setObserver(){
+        viewModel.getActiveAccount().observe(this, new Observer<AccountEntity>() {
+            @Override
+            public void onChanged(AccountEntity account) {
+                transaction.setAccountId(account.getId());
             }
         });
     }

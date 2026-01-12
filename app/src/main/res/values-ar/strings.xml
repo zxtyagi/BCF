@@ -19,7 +19,26 @@
     <string name="aggiungi_transazione">أضف معاملة</string>
     <string name="mostra_impostazioni">عرض الإعدادات</string>
     <string name="salva">حفظ</string>
-    <string name="pulsante_elimina_trans">زر حذف جميع المعاملات</string>
+    <string name="desc_elimina_trans">زر حذف جميع المعاملات</string>
     <string name="elimina_transazione">حذف المعاملة</string>
     <string name="modifica_transazione">تعديل المعاملة</string>
+    <string name="riavvio_necessario">إعادة تشغيل ضرورية</string>
+    <string name="riavvio_msg">يجب إعادة تشغيل التطبيق لضمان التشغيل الصحيح</string>
+    <string name="copia_errore">خطأ في النسخ</string>
+    <string name="riavvia">إعادة تشغيل</string>
+    <string name="errore_copiato">رسالة الخطأ منسوخة إلى الحافظة</string>
+    <string name="impossibile_esportare">غير قادر على التصدير</string>
+    <string name="impossibile_importare">غير قادر على الاستيراد</string>
+    <string name="salva_backup">حفظ النسخة الاحتياطية على الجهاز</string>
+    <string name="carica_backup">تحميل النسخة الاحتياطية من الجهاز</string>
+    <string name="solo_un_momento">لحظة من فضلك…</string>
+    <string name="backup_esportato">تم تصدير النسخة الاحتياطية بنجاح</string>
+    <string name="il_mio_conto">حسابي</string>
+    <string name="database">قاعدة البيانات</string>
+    <string name="visualizzazione">عرض</string>
+    <string name="forza_il_simbolo">فرض رمز العملة بعد الرقم</string>
+    <string name="desc_carica_bkp">انقر لتحميل النسخة الاحتياطية من الجهاز</string>
+    <string name="desc_salva_bkp">انقر لحفظ النسخة الاحتياطية على الجهاز</string>
+    <string name="desc_forza_simbolo">ضع علامة لتأكيد عرض رمز العملة بعد الرقم</string>
+    <string name="backup_importato">تم استيراد النسخة الاحتياطية بنجاح</string>
 </resources>
