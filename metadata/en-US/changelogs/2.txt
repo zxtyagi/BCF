@@ -1,0 +1,4 @@
+IMPORTANT: Due to a change in the signing key of the app, users will need to uninstall the previous version and reinstall this release. We apologize for the inconvenience and thank you for your understanding.
+
+- Added local backup
+- Fixed decimal rounding bug

@@ -1,0 +1,4 @@
+IMPORTANTE: A causa di un cambiamento nella chiave di firma dell'app, gli utenti dovranno disinstallare la versione precedente e reinstallare questa release. Ci scusiamo per il disagio e vi ringraziamo per la comprensione.
+
+- Aggiunto backup locale
+- Risolto bug di arrotondamento decimale
