@@ -1,3 +1,7 @@
+# ⚠️ IMPORTANT
+## Due to a change in the signing key of the app, users of v1.0 will need to uninstall the previous version and reinstall the new release. Unfortunately, it is not possible to retain the data in the transition to the new version. It is possible to continue using v1.0 and retain the data, but it will not be possible to update the app. We apologize for the inconvenience and thank you for your understanding.
+
+
 # BasicCashFlow
 
 [<img src="./app/src/main/ic_launcher-playstore.png"
