@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/margin_standard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleLarge"
+        android:layout_marginHorizontal="@dimen/margin_standard"
+        android:text="@string/seleziona_un_conto"
+        android:paddingBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcw_accounts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_rcy_acc"
+        tools:itemCount="4"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aggiungi_conto"
+        android:textColor="?attr/colorOnPrimary"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

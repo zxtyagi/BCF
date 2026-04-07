@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">Elimina tutte le transazioni</string>
 
     <string name="conferma_eliminazione">Conferma eliminazione</string>
-    <string name="conferma_eliminazione_body">Confermi l\'eliminazione di tutte le transazioni?\n\nImpossibile annullare!</string>
+    <string name="conferma_elim_trans_body">Confermi l\'eliminazione di tutte le transazioni?\n\nImpossibile annullare!</string>
     <string name="annulla">Annulla</string>
     <string name="eliminazione_completata">Eliminazione completata</string>
     <string name="eliminazione_annullata">Eliminazione annullata</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">Clicca per salvare il backup sul dispositivo</string>
     <string name="desc_forza_simbolo">Spunta per forzare la visualizzazione del simbolo di valuta dopo la cifra.</string>
     <string name="backup_importato">Il backup è stato importato correttamente.</string>
+    <string name="conferma_elim_acc_body">Confermi l\'eliminazione del conto e di tutte le transazioni ad esso associate?\n\nImpossibile annullare!</string>
+    <string name="saldo_parziale">Saldo parziale</string>
+    <string name="nuovo_conto">Nuovo conto</string>
+    <string name="generic_error_text">Qualcosa è andato storto…</string>
+    <string name="find">Cerca…</string>
+    <string name="seleziona_un_conto">Seleziona un conto</string>
+    <string name="aggiungi_conto">Aggiungi conto</string>
+    <string name="mostra_opzioni_multi_conto">Mostra opzioni multi-conto</string>
+    <string name="multi_conto_desc">Spunta per mostrare le opzioni per gestire più conti.</string>
+    <string name="cerca_tra_le_transazioni">Cerca tra le transazioni</string>
+    <string name="inserisci_il_nome_del_conto">Inserisci il nome del conto</string>
 </resources>

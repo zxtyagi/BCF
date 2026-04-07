@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">सभी लेनदेन हटाएं</string>
 
     <string name="conferma_eliminazione">हटाना पुष्टि करना</string>
-    <string name="conferma_eliminazione_body">क्या आप सभी लेनदेन हटाने की पुष्टि करते हैं? \nयह क्रिया रद्द नहीं की जा सकती!</string>
+    <string name="conferma_elim_trans_body">क्या आप सभी लेनदेन हटाने की पुष्टि करते हैं? \nयह क्रिया रद्द नहीं की जा सकती!</string>
     <string name="annulla">रद्द करें</string>
     <string name="eliminazione_completata">हटाना पूरा हुआ</string>
     <string name="eliminazione_annullata">हटाना रद्द कर दिया गया</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">डिवाइस में बैकअप सहेजने के लिए क्लिक करें</string>
     <string name="desc_forza_simbolo">संख्या के बाद मुद्रा चिह्न को प्रदर्शित करने के लिए चेक करें</string>
     <string name="backup_importato">बैकअप सफलतापूर्वक आयात किया गया है</string>
+    <string name="conferma_elim_acc_body">क्या आप खाते और उससे संबंधित सभी लेनदेन को हटाने की पुष्टि करते हैं?\n\nइसे वापस नहीं लिया जा सकता!</string>
+    <string name="saldo_parziale">आंशिक शेष</string>
+    <string name="nuovo_conto">नया खाता</string>
+    <string name="generic_error_text">कुछ गलत हो गया…</string>
+    <string name="find">खोजें…</string>
+    <string name="seleziona_un_conto">एक खाता चुनें</string>
+    <string name="aggiungi_conto">खाता जोड़ें</string>
+    <string name="mostra_opzioni_multi_conto">मल्टी‑अकाउंट विकल्प दिखाएँ</string>
+    <string name="multi_conto_desc">कई अकाउंट प्रबंधन विकल्प दिखाने के लिए टिक करें</string>
+    <string name="cerca_tra_le_transazioni">लेन‑देन में खोजें</string>
+    <string name="inserisci_il_nome_del_conto">खाते का नाम दर्ज करें</string>
 </resources>

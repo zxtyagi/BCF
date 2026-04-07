@@ -1,8 +1,10 @@
 package org.eagsoftware.basiccashflow.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -10,7 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -21,6 +22,7 @@ import org.eagsoftware.basiccashflow.data.AccountEntity;
 import org.eagsoftware.basiccashflow.data.SettingsEntity;
 import org.eagsoftware.basiccashflow.data.TransactionEntity;
 import org.eagsoftware.basiccashflow.databinding.ActivityAddBinding;
+import org.eagsoftware.basiccashflow.utilities.ViewModelUtil;
 
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -31,7 +33,7 @@ public class AddActivity extends AppCompatActivity {
     private AddActivityClickHandler clhAdd;
     private MyViewModel viewModel;
 
-    private TransactionEntity transaction = new TransactionEntity();
+    private TransactionEntity transaction;
 
     private TextWatcher textWatcher;
 
@@ -47,26 +49,30 @@ public class AddActivity extends AppCompatActivity {
             return insets;
         });
 
-        getMainActivityIntent();
-
         setMVVMcomponents();
 
         checkFractionDigits();
 
         setObserver();
 
-        bndAdd.edtAddCash.requestFocus();
     }
 
-    private void getMainActivityIntent() {
-        // Get transaction for editing if available
-        Bundle bundle = getIntent().getBundleExtra("bundle");
-        if(bundle != null)
-            transaction = (TransactionEntity) bundle.getSerializable("transaction");
+
+    @Override
+    public void onEnterAnimationComplete() {
+        super.onEnterAnimationComplete();
+
+        // Richiede il focus e apre la tastiera
+        bndAdd.edtAddCash.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(bndAdd.edtAddCash, InputMethodManager.SHOW_IMPLICIT);
     }
 
     private void setMVVMcomponents(){
-        viewModel = new ViewModelProvider(this).get(MyViewModel.class);
+        viewModel = ViewModelUtil.getViewModel(getApplication());
+
+        // Imposta la transaction in base a nuovo / modifica
+        transaction = viewModel.getActiveTransaction().getValue();
 
         bndAdd = DataBindingUtil.setContentView(this, R.layout.activity_add);
         bndAdd.setTransaction(transaction);

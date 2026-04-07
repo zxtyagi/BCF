@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey;
 public class AccountEntity {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id_account")
-    public int id;
-    public String name;
+    private int id;
+    private String name;
 
     // Il costruttore vuoto è usato da Room
     public AccountEntity() {
@@ -21,5 +21,17 @@ public class AccountEntity {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String newName) {
+        name = newName;
     }
 }

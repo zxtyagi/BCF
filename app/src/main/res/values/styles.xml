@@ -42,4 +42,8 @@
         <item name="android:textColor">?attr/colorSecondary</item>
     </style>
 
+    <style name="noScrim_bottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
 </resources>

@@ -5,3 +5,7 @@ The app is designed for those who simply want to keep track of cash flow, especi
 
 <b>How it works</b>
 The interface is designed to be simple and intuitive. To add a new transaction, simply click on the "+" button and fill in the form with the amount and a few words of description. With a simple swipe of the transaction, you can modify or delete it. If you want to change the currency, in the settings you will find all the currencies used in the world.
+
+<b>Other features</b>
+- You can search transactions by name to filter them and view a partial balance.
+- By enabling the option in the settings, you can manage multiple accounts, each with its own list of transactions.

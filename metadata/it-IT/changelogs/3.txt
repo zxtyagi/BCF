@@ -1,0 +1,3 @@
+- Aggiunta ricerca transazioni per nome
+- Aggiunta gestione conti multipli
+- Dipendenze aggiornate

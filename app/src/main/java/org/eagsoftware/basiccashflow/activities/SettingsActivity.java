@@ -19,7 +19,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
@@ -31,6 +30,7 @@ import org.eagsoftware.basiccashflow.clickhandlers.SettingsActivityClickHandler;
 import org.eagsoftware.basiccashflow.data.BackupDBManager;
 import org.eagsoftware.basiccashflow.data.SettingsEntity;
 import org.eagsoftware.basiccashflow.databinding.ActivitySettingsBinding;
+import org.eagsoftware.basiccashflow.utilities.ViewModelUtil;
 
 public class SettingsActivity extends AppCompatActivity {
     ActivitySettingsBinding mBndSet;
@@ -79,10 +79,8 @@ public class SettingsActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(Exception error) {
                                             if (error == null) {
-                                                runOnUiThread(() -> {
-                                                    getRestartDialog(SettingsActivity.this,
-                                                            getString(R.string.backup_esportato)).show();
-                                                });
+                                                runOnUiThread(() -> getRestartDialog(SettingsActivity.this,
+                                                            getString(R.string.backup_esportato)).show());
                                             } else if (error.getCause() != null) {
                                                 getCopyErrSnb(
                                                         mBndSet.getRoot(),
@@ -138,7 +136,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void setMVVMcomponents(){
         mBndSet = DataBindingUtil.setContentView(this, R.layout.activity_settings);
         mBndSet.setLifecycleOwner(this);
-        mViewModel = new ViewModelProvider(this).get(MyViewModel.class);
+        mViewModel = ViewModelUtil.getViewModel(getApplication());
         mBndSet.setSettings(mSettings);
         hndSet = new SettingsActivityClickHandler(SettingsActivity.this, mViewModel, mExportDBLauncher,
                 mImportDBLauncher);

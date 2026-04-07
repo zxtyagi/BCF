@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">删除所有交易</string>
 
     <string name="conferma_eliminazione">确认删除</string>
-    <string name="conferma_eliminazione_body">您确认要删除所有交易吗？\n无法撤销！</string>
+    <string name="conferma_elim_trans_body">您确认要删除所有交易吗？\n无法撤销！</string>
     <string name="annulla">取消</string>
     <string name="eliminazione_completata">删除完成</string>
     <string name="eliminazione_annullata">删除已取消</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">点击将备份保存到设备</string>
     <string name="desc_forza_simbolo">勾选以强制在数字后显示货币符号</string>
     <string name="backup_importato">备份已成功导入</string>
+    <string name="conferma_elim_acc_body">你确认要删除该账户及其所有相关交易吗？\n\n此操作无法撤销！</string>
+    <string name="saldo_parziale">部分余额</string>
+    <string name="nuovo_conto">新账户</string>
+    <string name="generic_error_text">出了点问题…</string>
+    <string name="find">搜索…</string>
+    <string name="seleziona_un_conto">选择一个账户</string>
+    <string name="aggiungi_conto">添加账户</string>
+    <string name="mostra_opzioni_multi_conto">显示多账户选项</string>
+    <string name="multi_conto_desc">勾选以显示管理多个账户的选项</string>
+    <string name="cerca_tra_le_transazioni">搜索交易</string>
+    <string name="inserisci_il_nome_del_conto">输入账户名称</string>
 </resources>

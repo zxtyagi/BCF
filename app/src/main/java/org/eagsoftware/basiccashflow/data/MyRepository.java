@@ -8,6 +8,8 @@ import android.os.Looper;
 
 import androidx.lifecycle.LiveData;
 
+import org.eagsoftware.basiccashflow.interfaces.ResultCallback;
+
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
@@ -56,19 +58,38 @@ public class MyRepository {
         });
     }
 
-    public LiveData<List<TransactionEntity>> getAllTransactions(){
+    public LiveData<List<TransactionEntity>> getAllTransactions(int accountId){
         // Non serve il thread separato perché il LiveData ha il suo thread.
-        return myDAO.getAllTransactions();
+        return myDAO.getAllTransactions(accountId);
     }
 
-    public CompletableFuture<String> getBalance(){
+    public CompletableFuture<String> getBalance(int accountId){
         return CompletableFuture.supplyAsync(new Supplier<String>() {
             @Override
             public String get() {
-                Cursor cursor = myDAO.getBalance();
+                Cursor cursor = myDAO.getBalance(accountId);
                 String balance = "0";
                 if(cursor != null && cursor.moveToFirst()){
                     int columnIndex = cursor.getColumnIndex("balance"); // -1 se non trovato
+                    if (columnIndex >= 0) balance = cursor.getString(columnIndex);
+                    cursor.close();
+                }
+
+                return balance;
+            }
+        }, execService);
+    }
+
+
+    public CompletableFuture<String> getFiltererdBalance(int accountId, String query) {
+        return CompletableFuture.supplyAsync(new Supplier<String>() {
+            @Override
+            public String get() {
+                Cursor cursor = myDAO.getFilteredBalance(accountId, query);
+                String balance = "0";
+
+                if (cursor != null && cursor.moveToFirst()) {
+                    int columnIndex = cursor.getColumnIndex("balance");
                     if (columnIndex >= 0) balance = cursor.getString(columnIndex);
                     cursor.close();
                 }
@@ -87,6 +108,11 @@ public class MyRepository {
                 handler.post(onDeleteCompleted);
             }
         });
+    }
+
+
+    public LiveData<List<TransactionEntity>> searchTransactions(int accountId, String query) {
+        return myDAO.searchTransactions(accountId, query);
     }
 
 
@@ -127,7 +153,6 @@ public class MyRepository {
 
 
     /* ACCOUNTS METHODS */
-
     public void insertAccount(AccountEntity account) {
         execService.execute(new Runnable() {
             @Override
@@ -140,6 +165,40 @@ public class MyRepository {
     public LiveData<List<AccountEntity>> getAllAccounts(){
         // Non serve il thread separato perché il LiveData ha il suo thread.
         return myDAO.getAllAccounts();
+    }
+
+    public void deleteAccount(AccountEntity account, ResultCallback callback) {
+        execService.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    myDAO.delete(account);
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.onSuccess();
+                        }
+                    });
+                } catch (Exception exc) {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.onError(exc);
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    public void updateAccountName(AccountEntity account, String newName) {
+        account.setName(newName);
+        execService.execute(new Runnable() {
+            @Override
+            public void run() {
+                myDAO.update(account);
+            }
+        });
     }
 
 }

@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">Удалить все транзакции</string>
 
     <string name="conferma_eliminazione">Подтвердить удаление</string>
-    <string name="conferma_eliminazione_body">Вы подтверждаете удаление всех транзакций?\n\nУдаление невозможно отменить!</string>
+    <string name="conferma_elim_trans_body">Вы подтверждаете удаление всех транзакций?\n\nУдаление невозможно отменить!</string>
     <string name="annulla">Отменить</string>
     <string name="eliminazione_completata">Удаление завершено</string>
     <string name="eliminazione_annullata">Удаление отменено</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">Нажмите, чтобы сохранить резервную копию на устройстве</string>
     <string name="desc_forza_simbolo">Установите флажок, чтобы принудительно отображать символ валюты после числа</string>
     <string name="backup_importato">Резервная копия успешно импортирована.</string>
+    <string name="conferma_elim_acc_body">Вы подтверждаете удаление счёта и всех связанных с ним транзакций?\n\nОтменить невозможно!</string>
+    <string name="saldo_parziale">Частичный баланс</string>
+    <string name="nuovo_conto">Новый счёт</string>
+    <string name="generic_error_text">Что‑то пошло не так…</string>
+    <string name="find">Поиск…</string>
+    <string name="seleziona_un_conto">Выберите счёт</string>
+    <string name="aggiungi_conto">Добавить счёт</string>
+    <string name="mostra_opzioni_multi_conto">Показать параметры мульти‑аккаунта</string>
+    <string name="multi_conto_desc">Отметьте, чтобы показать параметры управления несколькими аккаунтами</string>
+    <string name="cerca_tra_le_transazioni">Искать среди транзакций</string>
+    <string name="inserisci_il_nome_del_conto">Введите название счёта</string>
 </resources>

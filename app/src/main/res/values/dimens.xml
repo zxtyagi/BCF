@@ -10,7 +10,7 @@
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_minimum">2dp</dimen>
     <dimen name="header_elevation">4dp</dimen>
-    <dimen name="rcy_bottom_void_space">144dp</dimen>
+    <dimen name="rcy_bottom_void_space">200dp</dimen>
     <dimen name="max_textfields_width">488dp</dimen>
     <dimen name="max_list_width">600dp</dimen>
 </resources>

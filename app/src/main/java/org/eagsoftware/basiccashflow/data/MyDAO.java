@@ -22,19 +22,26 @@ public interface MyDAO {
     @Update
     void update(TransactionEntity transaction);
 
-    @Query("SELECT * FROM transactions ORDER BY id_transaction DESC")
-    LiveData<List<TransactionEntity>> getAllTransactions();
+    @Query("SELECT * FROM transactions WHERE id_account = :accountId ORDER BY id_transaction DESC")
+    LiveData<List<TransactionEntity>> getAllTransactions(int accountId);
 
     /** Query per la restituzione del saldo. La funzione coalesce restituisce il primo valore non nullo
      * dalla lista di valori passati come argomenti. In questo caso, restituisce il valore della somma dei
      * valori del campo"amount", oppure 0 se la tabella è vuota.*/
     @Query("SELECT COALESCE(SUM(CASE WHEN is_income THEN amount ELSE -amount END), 0) AS balance FROM " +
-            "transactions")
-    Cursor getBalance();
+            "transactions WHERE id_account = :accountId")
+    Cursor getBalance(int accountId);
+
+    @Query("SELECT COALESCE(SUM(CASE WHEN is_income THEN amount ELSE -amount END), 0) AS balance FROM " +
+            "transactions WHERE id_account = :accountId AND `desc` LIKE '%' || :query || '%'")
+    Cursor getFilteredBalance(int accountId, String query);
 
     @Query("DELETE FROM transactions")
     void deleteAllTransactions();
 
+    @Query("SELECT * FROM transactions " +
+            "WHERE id_account = :accountId AND `desc` LIKE '%' || :query || '%' ORDER BY timestamp DESC")
+    LiveData<List<TransactionEntity>> searchTransactions(int accountId, String query);
 
 
     /* SETTINGS METHODS */
@@ -52,6 +59,12 @@ public interface MyDAO {
     /* ACCOUNTS METHODS */
     @Insert
     void insert(AccountEntity account);
+
+    @Delete
+    void delete(AccountEntity account);
+
+    @Update
+    void update(AccountEntity account);
 
     @Query("SELECT * FROM accounts ORDER BY id_account DESC")
     LiveData<List<AccountEntity>> getAllAccounts();

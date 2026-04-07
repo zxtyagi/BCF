@@ -12,7 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +27,7 @@ import org.eagsoftware.basiccashflow.data.TransactionEntity;
 import org.eagsoftware.basiccashflow.databinding.ActivityMainBinding;
 import org.eagsoftware.basiccashflow.utilities.Constants;
 import org.eagsoftware.basiccashflow.utilities.LeaveBehindGenerator;
+import org.eagsoftware.basiccashflow.utilities.ViewModelUtil;
 
 import java.util.Currency;
 import java.util.List;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         setMVVMcomponents();
 
-        setObserver();
+        setObservers();
 
         setRecycler();
 
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setMVVMcomponents(){
-        viewModel = new ViewModelProvider(this).get(MyViewModel.class);
+        viewModel = ViewModelUtil.getViewModel(getApplication());
         bndMain = DataBindingUtil.setContentView(this, R.layout.activity_main);
         clhMain = new MainActivityClickHandler(this, viewModel);
         bndMain.setViewModel(viewModel);
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         bndMain.setClickHandler(clhMain);
     }
 
-    private void setObserver(){
+    private void setObservers(){
         viewModel.getTransactionsList().observe(this, new Observer<List<TransactionEntity>>() {
             @Override
             public void onChanged(List<TransactionEntity> transactionEntities) {
@@ -102,12 +102,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        viewModel.getSearchQuery().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                if (s.isEmpty()) bndMain.fabSearch.setImageResource(R.drawable.ic_search);
+                else bndMain.fabSearch.setImageResource(R.drawable.ic_search_off);
+            }
+        });
+
         viewModel.getSettings().observe(this, new Observer<SettingsEntity>() {
             @Override
             public void onChanged(SettingsEntity settingsEntity) {
                 if (settingsEntity == null){
                     // Se non sono stati ancora definiti dei salvataggi
-                    SettingsEntity defSets = new SettingsEntity(Constants.USER_ID, "EUR", false);
+                    SettingsEntity defSets = new SettingsEntity(Constants.USER_ID, "EUR", false, false);
                     viewModel.newSettings(defSets);
                 } else {
                     Currency curr = viewModel.getCurrency().getValue();
@@ -120,11 +128,14 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel.getAccountsList().observe(this, new Observer<List<AccountEntity>>() {
             @Override
-            public void onChanged(List<AccountEntity> accountEntities) {
-                if (accountEntities.isEmpty()) {
+            public void onChanged(List<AccountEntity> accountList) {
+                if (accountList.isEmpty()) {
                     AccountEntity accMain = new AccountEntity(getString(R.string.il_mio_conto));
                     viewModel.newAccount(accMain);
                 }
+                // Seleziona di default il primo conto
+                else if (viewModel.getActiveAccount().getValue() == null)
+                    viewModel.setActiveAccount(accountList.get(0));
             }
         });
     }
@@ -163,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 if(direction == ItemTouchHelper.LEFT) {
-                    adapterItemChangedPosition = viewHolder.getAdapterPosition();
+                    adapterItemChangedPosition = viewHolder.getBindingAdapterPosition();
                     TransactionEntity trans =
                             Objects.requireNonNull(viewModel.getTransactionsList().getValue(),
                                     "La transactionList è null").get(adapterItemChangedPosition);
@@ -189,15 +200,10 @@ public class MainActivity extends AppCompatActivity {
 
                 } else if (direction == ItemTouchHelper.RIGHT){
                     // Apre la add activity passando l'intent
-                    // NOTE: l'oggetto da modificare viene passato dall'intent e non letto dal viewmodel
-                    // per mantenere tutto volutamente sul main thread.
                     Intent intShowAddAct = new Intent(MainActivity.this, AddActivity.class);
-                    TransactionEntity currTrans = adpRcyTrans.getCurrTransaction(viewHolder);
-                    Bundle bundleTrans = new Bundle();
-                    bundleTrans.putSerializable("transaction", currTrans);
-                    intShowAddAct.putExtra("bundle", bundleTrans);
+                    viewModel.setActiveTransaction(adpRcyTrans.getCurrTransaction(viewHolder));
                     startActivity(intShowAddAct);
-                    adapterItemChangedPosition = viewHolder.getAdapterPosition();
+                    adapterItemChangedPosition = viewHolder.getBindingAdapterPosition();
                 }
             }
 
@@ -221,4 +227,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(rcyTrans);
     }
+
 }

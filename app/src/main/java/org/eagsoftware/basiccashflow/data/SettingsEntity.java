@@ -18,13 +18,17 @@ public class SettingsEntity extends BaseObservable implements Serializable {
     @ColumnInfo(name="force_symbol")
     boolean forceSymbolAfter;
 
+    @ColumnInfo(name="multi_account")
+    boolean multiAccount;
+
     public SettingsEntity() {
     }
 
-    public SettingsEntity(int id, String currencyCode, boolean forceSymbolAfter) {
+    public SettingsEntity(int id, String currencyCode, boolean forceSymbolAfter, boolean multiAccount) {
         this.id = id;
         this.currencyCode = currencyCode;
         this.forceSymbolAfter = forceSymbolAfter;
+        this.multiAccount = multiAccount;
     }
 
     public int getId() {
@@ -53,5 +57,14 @@ public class SettingsEntity extends BaseObservable implements Serializable {
     public void setForceSymbolAfter(boolean forceSymbolAfter){
         this.forceSymbolAfter = forceSymbolAfter;
         notifyPropertyChanged(BR.forceSymbolAfter);
+    }
+
+    @Bindable
+    public boolean isMultiAccount() {
+        return multiAccount;
+    }
+
+    public void setMultiAccount(boolean multiAccount) {
+        this.multiAccount = multiAccount;
     }
 }

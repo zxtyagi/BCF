@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         // Major.Patch - Need to keep this here for F-Droid
-        versionName = "2.0"
-        versionCode = 2
+        versionName = "3.0"
+        versionCode = 3
         applicationId = "org.eagsoftware.basiccashflow"
         minSdk = 26
         targetSdk = 36

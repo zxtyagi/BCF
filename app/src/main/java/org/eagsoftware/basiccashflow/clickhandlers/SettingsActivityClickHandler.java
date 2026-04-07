@@ -35,7 +35,7 @@ public class SettingsActivityClickHandler {
     public void onDeleteAllClick(View view){
         MaterialAlertDialogBuilder bldDlg = new MaterialAlertDialogBuilder(context);
         bldDlg.setTitle(context.getString(R.string.conferma_eliminazione));
-        bldDlg.setMessage(context.getString(R.string.conferma_eliminazione_body));
+        bldDlg.setMessage(context.getString(R.string.conferma_elim_trans_body));
         bldDlg.setPositiveButton(context.getString(R.string.conferma), new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

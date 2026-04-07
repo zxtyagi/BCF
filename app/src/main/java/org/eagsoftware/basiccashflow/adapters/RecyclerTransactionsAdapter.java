@@ -80,11 +80,11 @@ public class RecyclerTransactionsAdapter extends RecyclerView.Adapter<RecyclerTr
         MyDiffUtil diffUtil = new MyDiffUtil(transactionsList, newTransactionsList);
         DiffUtil.calculateDiff(diffUtil).dispatchUpdatesTo(this);
 
-        this.transactionsList = (ArrayList<TransactionEntity>) newTransactionsList;
+        this.transactionsList = new ArrayList<>(newTransactionsList);
     }
 
     public TransactionEntity getCurrTransaction(RecyclerView.ViewHolder viewHolder){
-        return transactionsList.get(viewHolder.getAdapterPosition());
+        return transactionsList.get(viewHolder.getBindingAdapterPosition());
     }
 
 

@@ -6,6 +6,8 @@
     android:fitsSystemWindows="true" >
 
     <data>
+        <import type="android.view.View" />
+        
         <variable
             name="viewModel"
             type="org.eagsoftware.basiccashflow.MyViewModel" />
@@ -27,38 +29,81 @@
             android:background="?attr/colorPrimaryDark"
             android:elevation="@dimen/header_elevation"
             app:layout_constraintBottom_toTopOf="@id/rcw_trans"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="0dp" />
 
-        <TextView
-            android:id="@+id/txw_balance_label"
+        <LinearLayout
+            android:id="@+id/lyt_labels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_standard"
             android:elevation="@dimen/header_elevation"
-            android:text="@string/saldo"
-            app:layout_constraintBottom_toTopOf="@+id/rcw_trans"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/margin_standard"
+            android:gravity="end"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@id/rcw_trans"
             app:layout_constraintEnd_toStartOf="@+id/txw_balance"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txw_balance_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/header_elevation"
+                android:animatedText="@{(viewModel.searchQuery.isEmpty()) ? @string/saldo : @string/saldo_parziale}"
+                android:textAlignment="viewEnd"
+                tools:text="Saldo" />
+
+            <TextView
+                android:id="@+id/txw_account_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/header_elevation"
+                android:animatedText="@{viewModel.activeAccount.name}"
+                android:textAlignment="viewEnd"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:visibility="@{viewModel.settings != null &amp;&amp; viewModel.settings.multiAccount ? View.VISIBLE : View.GONE}"
+                tools:text="Il mio conto" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txw_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_standard"
             android:elevation="@dimen/header_elevation"
             android:textSize="32sp"
             android:textStyle="bold"
             app:amountString="@{viewModel.balance}"
             app:currencyCode="@{viewModel.currency.currencyCode}"
             app:forceSymbolAfter="@{viewModel.settings.forceSymbolAfter}"
-            app:layout_constraintBottom_toBottomOf="@+id/txw_balance_label"
-            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintBottom_toTopOf="@+id/rcw_trans"
+            app:layout_constraintEnd_toStartOf="@+id/btn_account"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txw_balance_label"
-            app:layout_constraintTop_toTopOf="@+id/txw_balance_label"
+            app:layout_constraintStart_toEndOf="@+id/lyt_labels"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="8888.88 €" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_account"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="@dimen/min_touch"
+            android:layout_height="@dimen/min_touch"
+            android:layout_marginEnd="@dimen/margin_standard"
+            android:translationZ="@dimen/header_elevation"
+            android:onClick="@{clickHandler::onBtnAccountClicked}"
+            android:visibility="@{(viewModel.settings != null &amp;&amp; viewModel.settings.multiAccount) ? View.VISIBLE : View.GONE}"
+            app:icon="@drawable/ic_account"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"
+            app:layout_constraintBottom_toTopOf="@id/rcw_trans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcw_trans"
@@ -86,9 +131,23 @@
             android:onClick="@{clickHandler::onFABsettingsClicked}"
             android:contentDescription="@string/mostra_impostazioni"
             app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/fab_search"
+            app:layout_constraintEnd_toEndOf="@+id/fab_search"
+            app:srcCompat="@drawable/ic_settings"
+            style="@style/custom_fab_small" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="@{clickHandler::onFABsearchClicked}"
+            android:contentDescription="@string/cerca_tra_le_transazioni"
+            android:layout_marginBottom="@dimen/margin_standard"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_search"
             app:layout_constraintBottom_toTopOf="@+id/fab_main_add"
             app:layout_constraintEnd_toEndOf="@+id/fab_main_add"
-            app:srcCompat="@drawable/ic_settings"
             style="@style/custom_fab_small" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

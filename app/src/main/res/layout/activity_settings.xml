@@ -23,7 +23,6 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/margin_quite_large"
         tools:context=".activities.SettingsActivity">
 
         <ScrollView
@@ -103,6 +102,28 @@
                     app:layout_constraintTop_toBottomOf="@+id/spn_set_curr" />
 
                 <TextView
+                android:id="@+id/txw_set_acc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_standard"
+                android:text="@string/mostra_opzioni_multi_conto"
+                app:layout_constraintBottom_toBottomOf="@+id/cbx_set_acc"
+                app:layout_constraintEnd_toStartOf="@+id/cbx_set_acc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cbx_set_acc" />
+
+                <CheckBox
+                    android:id="@+id/cbx_set_acc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:layout_marginEnd="@dimen/margin_standard"
+                    android:checked="@={settings.multiAccount}"
+                    android:contentDescription="@string/multi_conto_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbx_set_sym" />
+
+                <TextView
                     android:id="@+id/txw_set_sep2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -114,7 +135,7 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbx_set_sym" />
+                    app:layout_constraintTop_toBottomOf="@+id/cbx_set_acc" />
 
                 <TextView
                     android:id="@+id/txw_set_exp_db"

@@ -5,3 +5,7 @@ L'app è pensata per chi vuole semplicemente tenere traccia dei flussi di denaro
 
 <b>Come funziona</b>
 L'interfaccia è progettata per essere semplice ed intuitiva. Per aggiungere una nuova transazione basta cliccare sul pulsante "+" e riempire il modulo con l'importo e qualche parola di descrizione. Con un semplice swipe della transazione è possibile modificarla od eliminarla. Se vuoi cambiare la valuta, nelle impostazioni troverai tutte le monete utilizzate nel mondo.
+
+<b>Altre funzioni<b>
+- È possibile ricercare per nome le transazioni in modo da filtrarle ed ottenerne il bilancio parziale.
+- Attivando l'opzione nelle impostazioni è possibile gestire più conti, ognuno con la sua lista di transazioni.

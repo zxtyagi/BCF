@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
     <data>
         <variable
@@ -20,6 +20,7 @@
         android:layout_height="match_parent"
         tools:context=".activities.MainActivity">
 
+        <!-- Background area -->
         <View
             android:id="@+id/view"
             android:layout_width="0dp"
@@ -33,67 +34,121 @@
 
         <TextView
             android:id="@+id/txw_balance_label"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:elevation="@dimen/header_elevation"
-            android:text="@string/saldo"
+            android:layout_marginHorizontal="@dimen/margin_standard"
             android:layout_marginBottom="@dimen/margin_quite_large"
+            android:animatedText="@{(viewModel.searchQuery.isEmpty()) ? @string/saldo : @string/saldo_parziale}"
+            android:textAlignment="center"
+            android:elevation="@dimen/header_elevation"
             app:layout_constraintBottom_toTopOf="@+id/txw_balance"
-            app:layout_constraintEnd_toStartOf="@+id/rcw_trans"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"/>
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintVertical_bias="1"
+            tools:text="Saldo" />
 
+        <!-- Balance -->
         <TextView
             android:id="@+id/txw_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_standard"
             android:elevation="@dimen/header_elevation"
+            android:textSize="32sp"
+            android:textStyle="bold"
             app:amountString="@{viewModel.balance}"
             app:currencyCode="@{viewModel.currency.currencyCode}"
             app:forceSymbolAfter="@{viewModel.settings.forceSymbolAfter}"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:layout_marginEnd="@dimen/margin_quite_small"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/rcw_trans"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txw_balance_label"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            tools:text="8888.8 €" />
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:text="8888.88 €" />
 
+        <!-- Account textview -->
+        <TextView
+            android:id="@+id/txw_account_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_standard"
+            android:layout_marginTop="@dimen/margin_quite_large"
+            android:animatedText="@{viewModel.activeAccount.name}"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAlignment="center"
+            android:elevation="@dimen/header_elevation"
+            android:visibility="@{viewModel.settings != null &amp;&amp; viewModel.settings.multiAccount ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_account"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/txw_balance"
+            app:layout_constraintVertical_bias="0"
+            tools:text="Il mio conto" />
+
+        <!-- Account button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_account"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="@dimen/min_touch"
+            android:layout_height="@dimen/min_touch"
+            android:layout_marginVertical="@dimen/margin_standard"
+            android:onClick="@{clickHandler::onBtnAccountClicked}"
+            android:translationZ="@dimen/header_elevation"
+            android:visibility="@{(viewModel.settings != null &amp;&amp; viewModel.settings.multiAccount) ? View.VISIBLE : View.GONE}"
+            app:icon="@drawable/ic_account"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium" />
+
+        <!-- Recycler -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcw_trans"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:paddingTop="1dp"
-            android:scrollbarDefaultDelayBeforeFade="@integer/scrollbar_dur"
             android:scrollbars="vertical"
+            android:scrollbarDefaultDelayBeforeFade="@integer/scrollbar_dur"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintWidth_percent="0.75"
             tools:listitem="@layout/item_rcy_trans" />
 
+        <!-- FAB Settings -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_settings"
             style="@style/custom_fab_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_standard"
             android:clickable="true"
-            android:contentDescription="@string/mostra_impostazioni"
+            android:layout_marginBottom="@dimen/margin_standard"
             android:onClick="@{clickHandler::onFABsettingsClicked}"
+            android:contentDescription="@string/mostra_impostazioni"
             app:fabSize="mini"
-            app:layout_constraintBottom_toTopOf="@+id/fab_main_add"
-            app:layout_constraintEnd_toEndOf="@+id/fab_main_add"
+            app:layout_constraintBottom_toTopOf="@+id/fab_search"
+            app:layout_constraintEnd_toEndOf="@+id/fab_search"
             app:srcCompat="@drawable/ic_settings" />
 
+        <!-- FAB Search -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_search"
+            style="@style/custom_fab_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginBottom="@dimen/margin_standard"
+            android:onClick="@{clickHandler::onFABsearchClicked}"
+            android:contentDescription="@string/cerca_tra_le_transazioni"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_search"
+            app:layout_constraintBottom_toTopOf="@+id/fab_main_add"
+            app:layout_constraintEnd_toEndOf="@+id/fab_main_add" />
+
+        <!-- FAB Add -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_main_add"
             style="@style/custom_fab"
@@ -102,8 +157,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:clickable="true"
-            android:contentDescription="@string/aggiungi_transazione"
             android:onClick="@{clickHandler::onFABaddClicked}"
+            android:contentDescription="@string/aggiungi_transazione"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_add" />

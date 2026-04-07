@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">Delete all transactions</string>
 
     <string name="conferma_eliminazione">Confirm deletion</string>
-    <string name="conferma_eliminazione_body">Confirm deleting all transactions?\n\nImpossible to undo!</string>
+    <string name="conferma_elim_trans_body">Confirm deleting all transactions?\n\nImpossible to undo!</string>
     <string name="annulla">Cancel</string>
     <string name="eliminazione_completata">Deletion completed</string>
     <string name="eliminazione_annullata">Deletion canceled</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">Click to save the backup to the device</string>
     <string name="desc_forza_simbolo">Check to force the currency symbol to be displayed after the number</string>
     <string name="backup_importato">The backup has been imported successfully.</string>
+    <string name="conferma_elim_acc_body">Do you confirm the deletion of the account and all transactions associated with it?  This cannot be undone!</string>
+    <string name="saldo_parziale">Partial balance</string>
+    <string name="nuovo_conto">New account</string>
+    <string name="generic_error_text">Something went wrong…</string>
+    <string name="find">Search…</string>
+    <string name="seleziona_un_conto">Select an account</string>
+    <string name="aggiungi_conto">Add account</string>
+    <string name="mostra_opzioni_multi_conto">Show multi-account options</string>
+    <string name="multi_conto_desc">Check to show options for managing multiple accounts</string>
+    <string name="cerca_tra_le_transazioni">Search transactions</string>
+    <string name="inserisci_il_nome_del_conto">Enter account name</string>
 </resources>

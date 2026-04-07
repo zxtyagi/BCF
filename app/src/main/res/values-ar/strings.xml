@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">حذف جميع المعاملات</string>
 
     <string name="conferma_eliminazione">تأكيد الحذف</string>
-    <string name="conferma_eliminazione_body">هل تريد التأكيد على حذف جميع المعاملات؟  \nهذه العملية لا يمكن إلغائها!</string>
+    <string name="conferma_elim_trans_body">هل تريد التأكيد على حذف جميع المعاملات؟  \nهذه العملية لا يمكن إلغائها!</string>
     <string name="annulla">الغاء</string>
     <string name="eliminazione_completata">تم الحذف بنجاح</string>
     <string name="eliminazione_annullata">تم إلغاء عملية الحذف</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">انقر لحفظ النسخة الاحتياطية على الجهاز</string>
     <string name="desc_forza_simbolo">ضع علامة لتأكيد عرض رمز العملة بعد الرقم</string>
     <string name="backup_importato">تم استيراد النسخة الاحتياطية بنجاح</string>
+    <string name="conferma_elim_acc_body">هل تؤكد حذف الحساب وجميع المعاملات المرتبطة به؟\n\nلا يمكن التراجع!</string>
+    <string name="saldo_parziale">الرصيد الجزئي</string>
+    <string name="nuovo_conto">حساب جديد</string>
+    <string name="generic_error_text">حدث خطأ ما…</string>
+    <string name="find">ابحث…</string>
+    <string name="seleziona_un_conto">اختر حسابًا</string>
+    <string name="aggiungi_conto">أضف حسابًا</string>
+    <string name="mostra_opzioni_multi_conto">عرض خيارات الحسابات المتعددة</string>
+    <string name="multi_conto_desc">حدد لإظهار الخيارات لإدارة عدة حسابات</string>
+    <string name="cerca_tra_le_transazioni">ابحث بين المعاملات</string>
+    <string name="inserisci_il_nome_del_conto">أدخل اسم الحساب</string>
 </resources>

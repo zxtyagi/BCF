@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">Supprimer toutes les transactions</string>
 
     <string name="conferma_eliminazione">Confirmer la suppression</string>
-    <string name="conferma_eliminazione_body">Confirmez la suppression de toutes les transactions ?\n\nImpossible à annuler !</string>
+    <string name="conferma_elim_trans_body">Confirmez la suppression de toutes les transactions ?\n\nImpossible à annuler !</string>
     <string name="annulla">Annuler</string>
     <string name="eliminazione_completata">Suppression terminée</string>
     <string name="eliminazione_annullata">Suppression annulée</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">Cliquez pour sauvegarder la sauvegarde sur l\'appareil</string>
     <string name="desc_forza_simbolo">Cochez pour forcer l\'affichage du symbole monétaire après le chiffre</string>
     <string name="backup_importato">La sauvegarde a été importée avec succès.</string>
+    <string name="conferma_elim_acc_body">Confirmez-vous la suppression du compte et de toutes les transactions associées ?\n\nImpossible d’annuler !</string>
+    <string name="saldo_parziale">Solde partiel</string>
+    <string name="nuovo_conto">Nouveau compte</string>
+    <string name="generic_error_text">Quelque chose s’est mal passé…</string>
+    <string name="find">Rechercher…</string>
+    <string name="seleziona_un_conto">Sélectionnez un compte</string>
+    <string name="aggiungi_conto">Ajouter un compte</string>
+    <string name="mostra_opzioni_multi_conto">Afficher les options multi‑compte</string>
+    <string name="multi_conto_desc">Cochez pour afficher les options de gestion de plusieurs comptes</string>
+    <string name="cerca_tra_le_transazioni">Rechercher parmi les transactions</string>
+    <string name="inserisci_il_nome_del_conto">Saisissez le nom du compte</string>
 </resources>

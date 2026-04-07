@@ -11,7 +11,7 @@
     <string name="elimina_transazioni">Eliminar todas las transacciones</string>
 
     <string name="conferma_eliminazione">Confirmar eliminación</string>
-    <string name="conferma_eliminazione_body">¿Confirma la eliminación de todas las transacciones?\n\n¡Imposible deshacer!</string>
+    <string name="conferma_elim_trans_body">¿Confirma la eliminación de todas las transacciones?\n\n¡Imposible deshacer!</string>
     <string name="annulla">Cancelar</string>
     <string name="eliminazione_completata">Eliminación completada</string>
     <string name="eliminazione_annullata">Eliminación cancelada</string>
@@ -41,4 +41,15 @@
     <string name="desc_salva_bkp">Haz clic para guardar la copia de seguridad en el dispositivo</string>
     <string name="desc_forza_simbolo">Marca para forzar la visualización del símbolo de moneda después del número</string>
     <string name="backup_importato">La copia de seguridad se ha importado correctamente.</string>
+    <string name="conferma_elim_acc_body">¿Confirmas la eliminación de la cuenta y todas las transacciones asociadas?\n\n¡No se puede deshacer!</string>
+    <string name="saldo_parziale">Saldo parcial</string>
+    <string name="nuovo_conto">Nueva cuenta</string>
+    <string name="generic_error_text">Algo salió mal…</string>
+    <string name="find">Buscar…</string>
+    <string name="seleziona_un_conto">Selecciona una cuenta</string>
+    <string name="aggiungi_conto">Agregar cuenta</string>
+    <string name="mostra_opzioni_multi_conto">Mostrar opciones multi‑cuenta</string>
+    <string name="multi_conto_desc">Marca para mostrar las opciones de gestión de varias cuentas</string>
+    <string name="cerca_tra_le_transazioni">Buscar entre las transacciones</string>
+    <string name="inserisci_il_nome_del_conto">Introduce el nombre de la cuenta</string>
 </resources>
