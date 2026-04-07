@@ -1,7 +1,3 @@
-# ⚠️ IMPORTANT
-## Due to a change in the signing key of the app, users of v1.0 will need to uninstall the previous version and reinstall the new release. Unfortunately, it is not possible to retain the data in the transition to the new version. It is possible to continue using v1.0 and retain the data, but it will not be possible to update the app. We apologize for the inconvenience and thank you for your understanding.
-
-
 # BasicCashFlow
 
 [<img src="./app/src/main/ic_launcher-playstore.png"
@@ -18,10 +14,19 @@ The app is designed for those who simply want to keep track of cash flow, especi
 ## How it works
 The interface is designed to be simple and intuitive. To add a new transaction, simply click on the "+" button and fill in the form with the amount and a few words of description. With a simple swipe of the transaction, you can modify or delete it. If you want to change the currency, in the settings you will find all the currencies used in the world.
 
+## Other features
+#### Search
+You can search transactions by name to filter them and view a partial balance.
+
+#### Multiple accounts
+By enabling the option in the settings, you can manage multiple accounts, each with its own list of transactions. If the option is enabled, a button will appear on the main screen at the top, to the right of the balance value. Tapping it opens an account-management dialog where you can add, delete, or rename accounts.
+
 
 ## Tracking
 No advertising, no hidden tracking!
 
+## Old versions ⚠️
+Due to a change in the signing key of the app, users of v1.0 will need to uninstall the previous version and reinstall the new release. Unfortunately, it is not possible to retain the data in the transition to the new version. It is possible to continue using v1.0 and retain the data, but it will not be possible to update the app. We apologize for the inconvenience and thank you for your understanding.
 
 ## Installation
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="50">](https://f-droid.org/packages/org.eagsoftware.basiccashflow/)
