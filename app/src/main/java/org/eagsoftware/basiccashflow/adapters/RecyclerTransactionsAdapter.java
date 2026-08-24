@@ -19,6 +19,11 @@ import org.eagsoftware.basiccashflow.utilities.MyDiffUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+// ---------- NAYE IMPORTS DATE FORMAT KE LIYE ----------
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+// ------------------------------------------------------
 
 public class RecyclerTransactionsAdapter extends RecyclerView.Adapter<RecyclerTransactionsAdapter.MyViewHolder> {
 
@@ -28,8 +33,6 @@ public class RecyclerTransactionsAdapter extends RecyclerView.Adapter<RecyclerTr
     private final int COLOR_TXT_OUTCOME;
 
     private final MyViewModel viewModel;
-
-
 
     public RecyclerTransactionsAdapter(List<TransactionEntity> transactionsList, Context context,
                                        MyViewModel viewModel) {
@@ -53,7 +56,6 @@ public class RecyclerTransactionsAdapter extends RecyclerView.Adapter<RecyclerTr
         return new MyViewHolder(bndItem, viewModel, context);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         TransactionEntity currTransaction = transactionsList.get(position);
@@ -63,12 +65,24 @@ public class RecyclerTransactionsAdapter extends RecyclerView.Adapter<RecyclerTr
         } else {
             holder.bndItem.txwRcyTransAmount.setTextColor(COLOR_TXT_OUTCOME);
         }
+
+        // ---------- NAYA DATE DIKHANE KA LOGIC ----------
+        long timestamp = currTransaction.getTimestamp();
+        if (timestamp > 0) {
+            // Timestamp ko "24 Aug 2026" format mein convert karein
+            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
+            String formattedDate = sdf.format(new Date(timestamp));
+            
+            // XML mein hum naye TextView ka id 'txwRcyTransDate' rakhne wale hain
+            holder.bndItem.txwRcyTransDate.setText(formattedDate);
+        }
+        // ------------------------------------------------
+
         // Aggiunge uno spazio dopo l'ultimo elemento (per evitare sovrapposizioni coi FAB) altrimenti resetta
         RecyclerView.LayoutParams lytParams = (RecyclerView.LayoutParams) holder.bndItem.getRoot().getLayoutParams();
         lytParams.bottomMargin = (position == getItemCount() - 1) ?
                 (int) context.getResources().getDimension(R.dimen.rcy_bottom_void_space) : 0;
     }
-
 
     @Override
     public int getItemCount() {
@@ -86,9 +100,6 @@ public class RecyclerTransactionsAdapter extends RecyclerView.Adapter<RecyclerTr
     public TransactionEntity getCurrTransaction(RecyclerView.ViewHolder viewHolder){
         return transactionsList.get(viewHolder.getBindingAdapterPosition());
     }
-
-
-
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         private final ItemRcyTransBinding bndItem;
