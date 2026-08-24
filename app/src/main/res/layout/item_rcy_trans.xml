@@ -28,6 +28,7 @@
             android:paddingHorizontal="@dimen/margin_standard"
             android:paddingVertical="@dimen/margin_quite_small">
 
+            <!-- Amount Text -->
             <TextView
                 android:id="@+id/txw_rcy_trans_amount"
                 android:layout_width="wrap_content"
@@ -37,12 +38,22 @@
                 app:currencyCode="@{viewModel.currency.currencyCode}"
                 app:isIncome="@{transaction.isIncome}"
                 app:forceSymbolAfter="@{viewModel.settings.forceSymbolAfter}"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="+50 €" />
 
+            <!-- NAYA DATE TEXTVIEW -->
+            <TextView
+                android:id="@+id/txw_rcy_trans_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txw_rcy_trans_amount"
+                tools:text="24 Aug 2026" />
 
+            <!-- Description Text -->
             <TextView
                 android:id="@+id/txw_rcy_trans_desc"
                 android:layout_width="0dp"
@@ -50,10 +61,10 @@
                 android:layout_marginStart="@dimen/margin_quite_small"
                 android:gravity="end"
                 android:text="@{transaction.desc}"
-                app:layout_constraintBottom_toBottomOf="@+id/txw_rcy_trans_amount"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/txw_rcy_trans_amount"
-                app:layout_constraintTop_toTopOf="@+id/txw_rcy_trans_amount"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="descrizione" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
